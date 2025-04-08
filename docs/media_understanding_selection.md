@@ -1,5 +1,6 @@
 ---
 title: Media Understanding & Selection
+layout: home
 nav_order: 2
 ---
 
