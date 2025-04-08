@@ -7,6 +7,6 @@ url: https://transmixr.github.io
 aux_links: # remove if you don't want this link to appear on your pages
   Template Repository: https://transmixr.github.io
 
-logo: "/assets/images/transmixr.png"
+logo: "../assets/images/transmixr.png"
 
 permalink: pretty
