@@ -1,8 +1,12 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: TRANSMIXR Documentation
+description: An overview of the technical results for the TRANSMIXR project.
 theme: just-the-docs
 
-url: https://just-the-docs.github.io
+url: https://transmixr.github.io
 
-aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+aux_links: # remove if you don't want this link to appear on your pages
+  Template Repository: https://transmixr.github.io
+
+logo: "/assets/images/transmixr.png"
+
+permalink: pretty
