@@ -1,5 +1,5 @@
 ---
-title: Components: Media Understanding & Selection
+title: Components - Media Understanding & Selection
 layout: home
 nav_order: 2
 ---
