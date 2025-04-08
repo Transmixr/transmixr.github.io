@@ -30,4 +30,4 @@ Determining the descriptive metadata for the item (NLP, NER and NEL components f
 
 
 
-![image](../../../assets/images/media_selection/media-selection-overview.png)
+![image](/assets/images/media_selection/media-selection-overview.png)
