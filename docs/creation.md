@@ -1,5 +1,5 @@
 ---
-title: Components\: Creation
+title: Components - Creation
 layout: home
 nav_order: 3
 ---
