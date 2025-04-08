@@ -15,9 +15,9 @@ permalink: pretty
 # appears at the bottom of every page's main content
 # Note: The footer_content option is deprecated and will be removed in a future major release. Please use `_includes/footer_custom.html` for more robust
 # markup / liquid-based content.
-footer_content: "<div style=\"position: absolute; bottom: 0em\">
+footer_content: "
 <img width="100" src=\"../assets/images/EN-Funded-by-the-EU-POS.jpg\"/>
 This project has received funding from the Horizon Europe programme under the Grant Agreement 101070109. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or European Commission. Neither the European Union nor the European Commission can be held responsible for them.
 
 
-Copyright &copy; 2023-2025 <a href=\"https://transmixr.eu/\">TRANSMIXR</a></div>"
+Copyright &copy; 2023-2025 <a href=\"https://transmixr.eu/\">TRANSMIXR</a>"
