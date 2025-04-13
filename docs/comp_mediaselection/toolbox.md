@@ -427,7 +427,7 @@ Return aggregated entities for a given search query. In contrast to the /keyenti
  curl --request POST   --url https://api.weblyzard.com/1.0/entities  --header 'Authorization: Bearer xxx  --header 'Content-Type: application/json' --data '{   "sources": [ 	"api.weblyzard.com/news\_en"     ],   "fields": [ 	"keyword.key", 	"keyword.name", 	"keyword.sentiment", 	"keyword.count"   ],   "filter": { 	"text": {   	"phrase": "climate change" 	}   },   "entityTypes": ["geocapital"],   "num_keywords": 10 }'
 ```
 ```json
-|{
+{
     "result": {
         "keyEntities": [
             {
@@ -502,12 +502,12 @@ Authentication and authorization is handled using JSON Web Tokens (JWT). Until t
 To obtain a new token, do a GET request to the /token endpoint:
 
 ```
-$ curl \-u \<user\>:\<pass\> https://api.weblyzard.com/1.0/token 
+$ curl -u <user>:<pass> https://api.weblyzard.com/1.0/token 
 ```
 The server responds with the issued token for the user:
-
-| xxx |
-| :---- |
+```json
+{ "xxx" }
+```
 
 For TransMIXR, the user credentials can be requested from webLyzard.
 
@@ -515,5 +515,5 @@ For TransMIXR, the user credentials can be requested from webLyzard.
 
 All API calls must be authenticated using a valid token (see above). Pass the token using the “Authorization: Bearer” request header:
 ```
-$ curl \-i \-H "Authorization: Bearer xxx" https://api.weblyzard.com/1.0/... 
+$ curl -i -H "Authorization: Bearer xxx" https://api.weblyzard.com/1.0/... 
 ```
