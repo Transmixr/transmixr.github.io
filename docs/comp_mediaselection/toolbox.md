@@ -63,10 +63,6 @@ parent: Components - Media Understanding & Selection
 
 # **Overview** {#overview}
 
-In case of issues or questions, please do not hesitate to contact us via:
-
-| WLT Admin: | Sascha Hubmann-Haidvogel | \<hubmann@weblyzard.com\> |
-| :---- | :---- | :---- |
 
 The **webLyzard API** specification outlines how to leverage the various technologies and services behind the *webLyzard* platform for third-party applications. The API specification contains two separate parts:
 
@@ -78,7 +74,7 @@ The webLyzard APIs are stateless RESTful APIs accessed via HTTPS. They typically
 This document should be considered beta status. While the overall set of features is stable, specific parts of the specification might still change in line with specific use case requirements.
 
 
-# **Search API** {#search-api}
+# **Search API**
 
 The WLT Search API allows to retrieve documents as well as keyword and entity aggregations from the WLT document repository.
 
@@ -89,13 +85,13 @@ The following endpoints are available in the WLT Search API:
 
 Clients need to send Content-Type:application/json and Accept:application/json headers.
 
-## **/search** {#/search}
+## **/search** 
 
-### Endpoint {#endpoint}
+### Endpoint 
 
 The endpoint for the search API is https://api.weblyzard.com/1.0/search
 
-### General query structure {#general-query-structure}
+### General query structure 
 
 A search query conforms to the following JSON document:
 
@@ -116,9 +112,9 @@ A search query conforms to the following JSON document:
 | beginDate | Only return documents published at or after the given date |
 | endDate | Only return documents published at or before the given date |
 
-### Query Types {#query-types}
+### Query Types
 
-#### Bool query {#bool-query}
+#### Bool query
 
 A boolean query combines any other queries into a single, aggregated query:
 
@@ -130,14 +126,14 @@ A boolean query combines any other queries into a single, aggregated query:
 **must\_not** \- none of the sub-queries must match.  
 **minimum\_should\_match** \- number of optional (**should**) clauses that must match.
 
-#### Phrase query {#phrase-query}
+#### Phrase query 
 
 A phrase query tries to match the given string as a phrase in the field:
 
 | "text" : {   "phrase" : "climate change } |
 | :---- |
 
-#### Regexp query {#regexp-query}
+#### Regexp query
 
 A regexp query tries to match the given string as a regular expression in the field:
 
@@ -149,14 +145,14 @@ A regexp query tries to match the given string as a regular expression in the fi
 | alternatives  
 ? optional parts
 
-### Term query {#term-query}
+### Term query 
 
 Match the given string to the full content of the field (text has to be an exact match on the full field):
 
 | "title" : {   "term" : "Media Watch on Climate Change" } |
 | :---- |
 
-#### Wildcard query {#wildcard-query}
+#### Wildcard query 
 
 Match the given string to the full content of the field, supporting wildcards:
 
@@ -165,7 +161,7 @@ Match the given string to the full content of the field, supporting wildcards:
 
 where \* matches any number of characters and ? matches a single character.
 
-#### Range query {#range-query}
+#### Range query 
 
 A query that supports matching values in a range:
 
@@ -187,7 +183,7 @@ yyyyMMdd
 dd-MM-yyyy  
 ddMMyyyy
 
-### Similar to query {#similar-to-query}
+### Similar to query 
 
 A query that allows to search for documents similar to the given text or URL:
 
@@ -209,7 +205,7 @@ A query that allows to search for documents similar to the given text or URL:
   **min** \- minimum word length of terms in the input text to be considered query terms  
   **max** \- maximum word length of terms in the input text to be considered query terms
 
-#### Entity query {#entity-query}
+#### Entity query 
 
 Search for documents containing the given extracted entity:
 
@@ -220,8 +216,7 @@ Search for documents containing the given extracted entity:
 **type** \- type of entity (e.g. geo, org, person)  
 **name** \- name of the entity
 
-#### Feature query {#feature-query}
-
+#### Feature query
 Search for documents containing the given feature:
 
 | "feature" : {   "name-of-feature" : {     "exists" : true|false,     "term" : ""   } } |
@@ -231,7 +226,7 @@ Search for documents containing the given feature:
 **exists** \- check if a feature of that name is annotated on the document  
 **term** \- query on exact value of the annotated feature
 
-#### Topdocs query {#topdocs-query}
+#### Topdocs query
 
 Limit results to the top documents matching the given sub query (useful for aggregations):
 
@@ -242,7 +237,7 @@ Limit results to the top documents matching the given sub query (useful for aggr
 **options** \- additional options to control query behavior  
   **maxdocuments** \- maximum number of documents to return
 
-#### Metric query {#metric-query}
+#### Metric query 
 
 Search for documents containing the given annotated metric:
 
@@ -279,7 +274,7 @@ total \- the total number of documents matching the query
 Note: if only document counts need to be retrieved, put all queries inside the filter attribute  
 and set count to 0 for best performance.
 
-### Examples {#examples}
+### Examples
 
 | curl \\   \--request POST \\   \--url https://api.weblyzard.com/1.0/search \\   \--header 'Authorization: Bearer xxx' \\   \--header 'Content-Type: application/json' \\   \--data '{     "sources" : \["api.weblyzard.com/news\_en"\],     "fields" : \["document.title", "document.url"\],     "query" : {       "text" : {         "phrase" : "climate change"       }     },     "beginDate" : "2024-01-01",     "endDate" : "2024-01-31",     "count" : 100   }' {   "result": {     "total": 9723,     "hits": \[       {         "title": "Climate change denial on Facebook, YouTube, Twitter and TikTok is ‘as bad as ever'",         "url": "https://www.usatoday.com/story/tech/2024/01/21/climate-change-misinformation-facebook-youtube-twitter/6594691001/"       },       …     \]   } }  |
 | :---- |
@@ -302,7 +297,7 @@ and set count to 0 for best performance.
 
 **Example 3: Search for 100 negative documents matching "climate change" as a phrase in the full text in January 2024 in English News Media, ranking matches on cnn.com first, returning title, URL and document sentiment.**
 
-## **/keyentities** {#/keyentities}
+## **/keyentities** 
 
 Return aggregated **key** entities for a given search query. Key Entities are terms and named entities that are marked to be **keywords**. The filter object supports the same syntax as the query object, but does not affect search result ranking. Try to use filters as much as possible to speed up query times.  
 The response contains both "sentiment" (average aggregated sentiment) and "count" (total number of annotations) for a search query.
@@ -315,8 +310,7 @@ The response contains both "sentiment" (average aggregated sentiment) and "count
 
 **Example 4: Search for the top 10 key entities within documents matching "climate change" as a phrase in the full text in January 2024 in English News Media, ranking matches on cnn.com first, returning entity key, their translated labels and entity sentiment.**
 
-## **/entities** {#/entities}
-
+## **/entities** 
 Return aggregated entities for a given search query. In contrast to the /keyentities endpoint, /entities only considers named entity matches (e.g. GeoEntity, PersonEntity, OrganizationEntity, but not KeywordEntities). The filter object supports the same syntax as the query object, but does not affect search result ranking. Try to use filters as much as possible to speed up query times.
 
 | curl \--request POST \\   \--url https://api.weblyzard.com/1.0/entities \\   \--header 'Authorization: Bearer xxx   \--header 'Content-Type: application/json' \\   \--data '{   "sources": \[ 	"api.weblyzard.com/news\_en"     \],   "fields": \[ 	"keyword.key", 	"keyword.name", 	"keyword.sentiment", 	"keyword.count"   \],   "filter": { 	"text": {   	"phrase": "climate change" 	}   },   "entityTypes": \["geocapital"\],   "num\_keywords": 10 }' |
@@ -327,7 +321,7 @@ Return aggregated entities for a given search query. In contrast to the /keyenti
 
 **Example 4: Search for the top 10 geo capital named entities within documents matching "climate change" as a phrase in the full text in January 2024 in English News Media, returning the respective fields as requested.**
 
-# **Visualization API** {#visualization-api}
+# **Visualization API** 
 
 The webLyzard dashboard offers a feature-rich and customizable solution for visual analytics, semantic search and Web intelligence applications. To support use cases that require a more granular approach, the webLyzard Visualization API enables the integration of distinct portal components into third-party Web applications as embeddable widgets (2D).
 
@@ -361,12 +355,12 @@ Version 1 uses \<iframe\> tags to embed these components. While this approach en
 | \<\!-- The geo map using a custom search term \--\>\<iframe width='400' height='600' src='/embed/xkVUVgdpF9QPbzr2BWaT8syTaofarU6K/geomap/search=fracking' frameborder='0'\> |
 
 
-# **Appendix A: Authentication | Authorization** {#appendix-a:-authentication-|-authorization}
+# **Appendix A: Authentication | Authorization** 
 
 Authentication and authorization is handled using JSON Web Tokens (JWT). Until tokens are issued using the global webLyzard login server, new tokens can be obtained using the /token API endpoint using Basic Authentication.   
 *A token is valid for 8 hours, after which the token will be rejected by the API and a new token must be generated*.
 
-## **Obtaining a new token** {#obtaining-a-new-token}
+## **Obtaining a new token**
 
 To obtain a new token, do a GET request to the /token endpoint:
 
