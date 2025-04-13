@@ -8,59 +8,6 @@ parent: Components - Media Understanding & Selection
 
 # **webLyzard API Specification** **Application Programming Interface** **05 February 2025**
 
-**Table of Contents**
-
-[Overview](#overview)
-
-[Search API](#search-api)
-
-[/search](#/search)
-
-[Endpoint](#endpoint)
-
-[General query structure](#general-query-structure)
-
-[Query Types](#query-types)
-
-[Bool query](#bool-query)
-
-[Phrase query](#phrase-query)
-
-[Regexp query](#regexp-query)
-
-[Term query](#term-query)
-
-[Wildcard query](#wildcard-query)
-
-[Range query](#range-query)
-
-[Similar to query](#similar-to-query)
-
-[Entity query](#entity-query)
-
-[Feature query](#feature-query)
-
-[Topdocs query](#topdocs-query)
-
-[Metric query](#metric-query)
-
-[Boosting queries](#boosting-queries)
-
-[Examples](#examples)
-
-[/keyentities](#/keyentities)
-
-[/entities](#/entities)
-
-[Visualization API](#visualization-api)
-
-[Appendix A: Authentication | Authorization](#appendix-a:-authentication-|-authorization)
-
-[Obtaining a new token](#obtaining-a-new-token)
-
-[Calling API methods using the obtained token](#calling-api-methods-using-the-obtained-token)
-
-
 # **Overview** {#overview}
 
 
@@ -96,7 +43,17 @@ The endpoint for the search API is https://api.weblyzard.com/1.0/search
 A search query conforms to the following JSON document:
 
 ```json
- {   "sources" : \[\],   "fields" : \[\],   "query" : {},   "filter" : {},   "count" : 10,   "offset" : 0,   "ranking" : {},   "beginDate" : "",   "endDate" : "" }
+{
+    "sources": [],
+    "fields": [],
+    "query": {},
+    "filter": {},
+    "count": 10,
+    "offset": 0,
+    "ranking": {},
+    "beginDate": "",
+    "endDate": ""
+}
 ```
 
 | Search |  |
@@ -119,8 +76,16 @@ A search query conforms to the following JSON document:
 
 A boolean query combines any other queries into a single, aggregated query:
 
-| "bool" : {   "must" : \[\],   "should" : \[\],   "must\_not: \[\],   "minimum\_should\_match: 0 } |
-| :---- |
+```json
+{
+    "bool": {
+        "must": [],
+        "should": [],
+        "must_not": [],
+        "minimum_should_match": 0
+    }
+}
+```
 
 **must** \- each of the sub-queries must match.  
 **should** \- any of the sub-queries should match.  
@@ -131,15 +96,25 @@ A boolean query combines any other queries into a single, aggregated query:
 
 A phrase query tries to match the given string as a phrase in the field:
 
-| "text" : {   "phrase" : "climate change } |
-| :---- |
+```json
+{
+    "text": {
+        "phrase": "climate change"
+    }
+}
+```
 
 #### Regexp query
 
 A regexp query tries to match the given string as a regular expression in the field:
 
-| "title" : {   "regexp" : "climate( |-)change } |
-| :---- |
+```json
+{
+    "title": {
+        "regexp": "climate( |-)change"
+    }
+}
+```
 
 **Allowed regular expression operators:**  
 () grouping  
@@ -150,15 +125,25 @@ A regexp query tries to match the given string as a regular expression in the fi
 
 Match the given string to the full content of the field (text has to be an exact match on the full field):
 
-| "title" : {   "term" : "Media Watch on Climate Change" } |
-| :---- |
+```json
+{
+    "title": {
+        "term": "Media Watch on Climate Change"
+    }
+}
+```
 
 #### Wildcard query 
 
 Match the given string to the full content of the field, supporting wildcards:
 
-| "url" : {   "wildcard" : "www.google.com/\*" } |
-| :---- |
+```json
+{
+    "url": {
+        "wildcard": "www.google.com/\*"
+    }
+}
+```
 
 where \* matches any number of characters and ? matches a single character.
 
