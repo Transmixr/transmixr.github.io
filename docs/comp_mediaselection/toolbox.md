@@ -95,8 +95,9 @@ The endpoint for the search API is https://api.weblyzard.com/1.0/search
 
 A search query conforms to the following JSON document:
 
-| {   "sources" : \[\],   "fields" : \[\],   "query" : {},   "filter" : {},   "count" : 10,   "offset" : 0,   "ranking" : {},   "beginDate" : "",   "endDate" : "" } |
-| :---- |
+```json
+ {   "sources" : \[\],   "fields" : \[\],   "query" : {},   "filter" : {},   "count" : 10,   "offset" : 0,   "ranking" : {},   "beginDate" : "",   "endDate" : "" }
+```
 
 | Search |  |
 | :---- | :---- |
