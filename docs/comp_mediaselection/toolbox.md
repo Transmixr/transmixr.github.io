@@ -270,7 +270,8 @@ Limit results to the top documents matching the given sub query (useful for aggr
             "maxdocuments": 10
         }
     }
-}```
+}
+```
 **query** \- any supported query can be used as a sub-query  
 **options** \- additional options to control query behavior  
   **maxdocuments** \- maximum number of documents to return
@@ -328,11 +329,11 @@ and set count to 0 for best performance.
 
 ### Examples
 
-```curl
+```
 curl  --request POST --url https://api.weblyzard.com/1.0/search  --header 'Authorization: Bearer xxx' --header 'Content-Type: application/json' --data '{     "sources" : ["api.weblyzard.com/news\_en"],     "fields" : ["document.title", "document.url"],     "query" : {       "text" : {         "phrase" : "climate change"       }     },     "beginDate" : "2024-01-01",     "endDate" : "2024-01-31",     "count" : 100   }' {   "result": {     "total": 9723,     "hits": [       {         "title": "Climate change denial on Facebook, YouTube, Twitter and TikTok is ‘as bad as ever'",         "url": "https://www.usatoday.com/story/tech/2024/01/21/climate-change-misinformation-facebook-youtube-twitter/6594691001/"       },           ]   } } 
 ```
 **Example 1: Search for 100 documents matching "climate change" as a phrase in the full text in January 2024 in English News Media, returning title and URL**
-```curl
+```
  curl --request POST --url https://api.weblyzard.com/1.0/search --header 'Authorization: Bearer xxx' --header 'Content-Type: application/json' --data '{     "sources" : ["api.weblyzard.com/news\_en"],     "fields" : ["document.title", "document.url", "document.sentiment"],     "query" : {       "bool" : {         "must" : [{           "text" : {             "phrase" : "climate change"           }         }, {           "entity" : {             "key" : "http://sws.geonames.org/2077456/"           }         }]       }     },     "filter" : {       "sentiment" : {         "lt" : 0       }     },     "beginDate" : "2024-01-01",     "endDate" : "2024-01-31",     "count" : 100   }' 
 ```
 ```json
@@ -350,7 +351,7 @@ curl  --request POST --url https://api.weblyzard.com/1.0/search  --header 'Autho
 }
 ```
 **Example 2: Search for 100 negative documents matching "climate change" as a phrase in the full text and containing “Australia” as an annotated entity in January 2024 in English News Media, returning title, URL and document sentiment.**
-```curl
+```
  curl --request POST --url https://api.weblyzard.com/1.0/search  --header 'Authorization: Bearer xxx' --header 'Content-Type: application/json'  --data '{     "sources" : ["api.weblyzard.com/news\_en"],     "fields" : ["document.title", "document.url", "document.sentiment"],     "query" : {       "text" : {         "phrase" : "climate change"       }     },     "filter" : {       "sentiment" : {         "lt" : 0       }     },     "beginDate" : "2024-01-01",     "endDate" : "2024-01-31",     "count" : 100,     "ranking" : {       "boost" : [{         "query" : {           "url" : {             "wildcard" : "\*.cnn.com/\*"           }         },         "mode" : "multiply",         "boost" : 10       }]     }   }' 
 ```
 ```json
@@ -374,7 +375,7 @@ curl  --request POST --url https://api.weblyzard.com/1.0/search  --header 'Autho
 Return aggregated **key** entities for a given search query. Key Entities are terms and named entities that are marked to be **keywords**. The filter object supports the same syntax as the query object, but does not affect search result ranking. Try to use filters as much as possible to speed up query times.  
 The response contains both "sentiment" (average aggregated sentiment) and "count" (total number of annotations) for a search query.
 
-```curl
+```
  curl    --request POST   --url https://api.weblyzard.com/1.0/keyentities   --header 'Authorization: Bearer xxx'    --header 'Content-Type: application/json'    --data '{     "sources": ["api.weblyzard.com/news_en"],     "fields": ["keyword.key", "keyword.name", "keyword.sentiment", "keyword.count"],     "filter": {       "text":{         "phrase":"climate change"       }     },     "beginDate":"2024-01-01",     "endDate":"2024-01-31",     "count": 10   }' 
 ```
 ```json
@@ -422,7 +423,7 @@ The response contains both "sentiment" (average aggregated sentiment) and "count
 
 ## **/entities** 
 Return aggregated entities for a given search query. In contrast to the /keyentities endpoint, /entities only considers named entity matches (e.g. GeoEntity, PersonEntity, OrganizationEntity, but not KeywordEntities). The filter object supports the same syntax as the query object, but does not affect search result ranking. Try to use filters as much as possible to speed up query times.
-```curl
+```
  curl --request POST   --url https://api.weblyzard.com/1.0/entities  --header 'Authorization: Bearer xxx  --header 'Content-Type: application/json' --data '{   "sources": [ 	"api.weblyzard.com/news\_en"     ],   "fields": [ 	"keyword.key", 	"keyword.name", 	"keyword.sentiment", 	"keyword.count"   ],   "filter": { 	"text": {   	"phrase": "climate change" 	}   },   "entityTypes": ["geocapital"],   "num_keywords": 10 }'
 ```
 ```json
