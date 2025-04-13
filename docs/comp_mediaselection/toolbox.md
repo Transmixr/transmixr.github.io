@@ -151,12 +151,22 @@ where \* matches any number of characters and ? matches a single character.
 
 A query that supports matching values in a range:
 
-| "sentiment" : {   "lt" : 0,   "gt" : \-0.5 } |
-| :---- |
-
-| "date" : {   "gte" : "2022-01-01",   "lte" : "2022-12-31" } |
-| :---- |
-
+```json
+{
+    "sentiment": {
+        "lt": 0,
+        "gt": -0.5
+    }
+}
+```
+```json
+{
+    "date": {
+        "gte": "2022-01-01",
+        "lte": "2022-12-31"
+    }
+}
+```
 **eq** \- value equals the given value  
 **lt** \- value is less than the given value  
 **gt** \- value is greater than the given value  
@@ -173,8 +183,31 @@ ddMMyyyy
 
 A query that allows to search for documents similar to the given text or URL:
 
-| "similarto" : {   "value" : "",   "options" : {     "maxdocuments": 1,     "maxqueryterms": 10,     "minmatching": {       "terms": 1,       "percent": 30     },     "termfrequency": {       "mintermfrequency": 10,       "mindocfrequency": 10,       "maxdocfrequency": 100     },     "wordlength": {       "min": 0,       "max": 100     },     "stopwords": \[\]   } } |
-| :---- |
+```json
+{
+    "similarto": {
+        "value": "",
+        "options": {
+            "maxdocuments": 1,
+            "maxqueryterms": 10,
+            "minmatching": {
+                "terms": 1,
+                "percent": 30
+            },
+            "termfrequency": {
+                "mintermfrequency": 10,
+                "mindocfrequency": 10,
+                "maxdocfrequency": 100
+            },
+            "wordlength": {
+                "min": 0,
+                "max": 100
+            },
+            "stopwords": []
+        }
+    }
+}
+```
 
 **value** \- the input value for which to search for similar content  
 **options** \- specify options to influence the behavior of the query  
