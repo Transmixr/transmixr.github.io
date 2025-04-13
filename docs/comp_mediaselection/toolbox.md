@@ -227,10 +227,15 @@ A query that allows to search for documents similar to the given text or URL:
 #### Entity query 
 
 Search for documents containing the given extracted entity:
-
-| "entity" : {   "key" : "",   "type" : "",   "name" : "" } |
-| :---- |
-
+```json
+{
+    "entity": {
+        "key": "",
+        "type": "",
+        "name": "Barack Obama"
+    }
+}
+```
 **key** \- exact URI of the entity  
 **type** \- type of entity (e.g. geo, org, person)  
 **name** \- name of the entity
@@ -238,8 +243,16 @@ Search for documents containing the given extracted entity:
 #### Feature query
 Search for documents containing the given feature:
 
-| "feature" : {   "name-of-feature" : {     "exists" : true|false,     "term" : ""   } } |
-| :---- |
+```json
+{
+    "feature": {
+        "name-of-feature": {
+            "exists": true,
+            "term": ""
+        }
+    }
+}
+```
 
 **name-of-feature** \- name of the feature to query on (project specific)  
 **exists** \- check if a feature of that name is annotated on the document  
@@ -249,9 +262,15 @@ Search for documents containing the given feature:
 
 Limit results to the top documents matching the given sub query (useful for aggregations):
 
-| "topdocs" : {   "query" : {},   "options" : {     "maxdocuments" : 10,   } } |
-| :---- |
-
+```json
+{
+    "topdocs": {
+        "query": {},
+        "options": {
+            "maxdocuments": 10
+        }
+    }
+}```
 **query** \- any supported query can be used as a sub-query  
 **options** \- additional options to control query behavior  
   **maxdocuments** \- maximum number of documents to return
@@ -259,9 +278,22 @@ Limit results to the top documents matching the given sub query (useful for aggr
 #### Metric query 
 
 Search for documents containing the given annotated metric:
-
-| "metric" : {   "not\_exists|exists" : {     "user" : "",     "name" : "",     "value" : ""   },   "eq|lt|gt|lte|gte" : {     "user" : "",     "name" : "",     "value" : ""   } } |
-| :---- |
+``` json
+{
+    "metric": {
+        "not_exists|exists": {
+            "user": "",
+            "name": "",
+            "value": ""
+        },
+        "eq|lt|gt|lte|gte": {
+            "user": "",
+            "name": "",
+            "value": ""
+        }
+    }
+}
+```
 
 **exists** \- a metric matching the given specification must exist on the document  
 **not\_exists** \- a metric matching the given specification must not exist on the document  
@@ -284,8 +316,9 @@ Query ranking can be influenced by setting boosting queries, where each boosting
 
 **Response**
 
-| {  "hits": \[\],  "total": 0 } |
-| :---- |
+```
+ {  "hits": [],  "total": 0 } 
+```
 
 hits \- a list of documents  
 total \- the total number of documents matching the query
@@ -295,25 +328,45 @@ and set count to 0 for best performance.
 
 ### Examples
 
-| curl \\   \--request POST \\   \--url https://api.weblyzard.com/1.0/search \\   \--header 'Authorization: Bearer xxx' \\   \--header 'Content-Type: application/json' \\   \--data '{     "sources" : \["api.weblyzard.com/news\_en"\],     "fields" : \["document.title", "document.url"\],     "query" : {       "text" : {         "phrase" : "climate change"       }     },     "beginDate" : "2024-01-01",     "endDate" : "2024-01-31",     "count" : 100   }' {   "result": {     "total": 9723,     "hits": \[       {         "title": "Climate change denial on Facebook, YouTube, Twitter and TikTok is ‘as bad as ever'",         "url": "https://www.usatoday.com/story/tech/2024/01/21/climate-change-misinformation-facebook-youtube-twitter/6594691001/"       },       …     \]   } }  |
-| :---- |
-
+```curl
+curl  --request POST --url https://api.weblyzard.com/1.0/search  --header 'Authorization: Bearer xxx' --header 'Content-Type: application/json' --data '{     "sources" : ["api.weblyzard.com/news\_en"],     "fields" : ["document.title", "document.url"],     "query" : {       "text" : {         "phrase" : "climate change"       }     },     "beginDate" : "2024-01-01",     "endDate" : "2024-01-31",     "count" : 100   }' {   "result": {     "total": 9723,     "hits": [       {         "title": "Climate change denial on Facebook, YouTube, Twitter and TikTok is ‘as bad as ever'",         "url": "https://www.usatoday.com/story/tech/2024/01/21/climate-change-misinformation-facebook-youtube-twitter/6594691001/"       },           ]   } } 
+```
 **Example 1: Search for 100 documents matching "climate change" as a phrase in the full text in January 2024 in English News Media, returning title and URL**
-
-| curl \\   \--request POST \\   \--url https://api.weblyzard.com/1.0/search \\   \--header 'Authorization: Bearer xxx' \\   \--header 'Content-Type: application/json' \\   \--data '{     "sources" : \["api.weblyzard.com/news\_en"\],     "fields" : \["document.title", "document.url", "document.sentiment"\],     "query" : {       "bool" : {         "must" : \[{           "text" : {             "phrase" : "climate change"           }         }, {           "entity" : {             "key" : "http://sws.geonames.org/2077456/"           }         }\]       }     },     "filter" : {       "sentiment" : {         "lt" : 0       }     },     "beginDate" : "2024-01-01",     "endDate" : "2024-01-31",     "count" : 100   }' |
-| :---- |
-
-| {   "result": {     "total": 415,     "hits": \[       {         "title": "Environmental disasters are fuelling migration — here's why international law must recognize climate refugees",         "url": "https://theconversation.com/environmental-disasters-are-fuelling-migration-heres-why-international-law-must-recognize-climate-refugees-173714",         "sentiment": \-1.0       },       …     \]   } } |
-| :---- |
-
+```curl
+ curl --request POST --url https://api.weblyzard.com/1.0/search --header 'Authorization: Bearer xxx' --header 'Content-Type: application/json' --data '{     "sources" : ["api.weblyzard.com/news\_en"],     "fields" : ["document.title", "document.url", "document.sentiment"],     "query" : {       "bool" : {         "must" : [{           "text" : {             "phrase" : "climate change"           }         }, {           "entity" : {             "key" : "http://sws.geonames.org/2077456/"           }         }]       }     },     "filter" : {       "sentiment" : {         "lt" : 0       }     },     "beginDate" : "2024-01-01",     "endDate" : "2024-01-31",     "count" : 100   }' 
+```
+```json
+{
+    "result": {
+        "total": 415,
+        "hits": [
+            {
+                "title": "Environmental disasters are fuelling migration — here's why international law must recognize climate refugees",
+                "url": "https://theconversation.com/environmental-disasters-are-fuelling-migration-heres-why-international-law-must-recognize-climate-refugees-173714",
+                "sentiment": -1
+            }
+        ]
+    }
+}
+```
 **Example 2: Search for 100 negative documents matching "climate change" as a phrase in the full text and containing “Australia” as an annotated entity in January 2024 in English News Media, returning title, URL and document sentiment.**
-
-| curl \\   \--request POST \\   \--url https://api.weblyzard.com/1.0/search \\   \--header 'Authorization: Bearer xxx' \\   \--header 'Content-Type: application/json' \\   \--data '{     "sources" : \["api.weblyzard.com/news\_en"\],     "fields" : \["document.title", "document.url", "document.sentiment"\],     "query" : {       "text" : {         "phrase" : "climate change"       }     },     "filter" : {       "sentiment" : {         "lt" : 0       }     },     "beginDate" : "2024-01-01",     "endDate" : "2024-01-31",     "count" : 100,     "ranking" : {       "boost" : \[{         "query" : {           "url" : {             "wildcard" : "\*.cnn.com/\*"           }         },         "mode" : "multiply",         "boost" : 10       }\]     }   }' |
-| :---- |
-
-| {   "result": {     "total": 4598,     "hits": \[       {         "title": "Climate change is coming for our coffee",         "url": "https://edition.cnn.com/2024/01/26/business/coffee-climate-change/index.html",         "sentiment": \-0.48450157046318054       },       …     \]   } } |
-| :---- |
-
+```curl
+ curl --request POST --url https://api.weblyzard.com/1.0/search  --header 'Authorization: Bearer xxx' --header 'Content-Type: application/json'  --data '{     "sources" : ["api.weblyzard.com/news\_en"],     "fields" : ["document.title", "document.url", "document.sentiment"],     "query" : {       "text" : {         "phrase" : "climate change"       }     },     "filter" : {       "sentiment" : {         "lt" : 0       }     },     "beginDate" : "2024-01-01",     "endDate" : "2024-01-31",     "count" : 100,     "ranking" : {       "boost" : [{         "query" : {           "url" : {             "wildcard" : "\*.cnn.com/\*"           }         },         "mode" : "multiply",         "boost" : 10       }]     }   }' 
+```
+```json
+{
+    "result": {
+        "total": 4598,
+        "hits": [
+            {
+                "title": "Climate change is coming for our coffee",
+                "url": "https://edition.cnn.com/2024/01/26/business/coffee-climate-change/index.html",
+                "sentiment": -0.48450157046318054
+            }
+        ]
+    }
+}
+```
 **Example 3: Search for 100 negative documents matching "climate change" as a phrase in the full text in January 2024 in English News Media, ranking matches on cnn.com first, returning title, URL and document sentiment.**
 
 ## **/keyentities** 
@@ -321,23 +374,87 @@ and set count to 0 for best performance.
 Return aggregated **key** entities for a given search query. Key Entities are terms and named entities that are marked to be **keywords**. The filter object supports the same syntax as the query object, but does not affect search result ranking. Try to use filters as much as possible to speed up query times.  
 The response contains both "sentiment" (average aggregated sentiment) and "count" (total number of annotations) for a search query.
 
-| curl \\   \--request POST \\   \--url https://api.weblyzard.com/1.0/keyentities \\   \--header 'Authorization: Bearer xxx' \\   \--header 'Content-Type: application/json' \\   \--data '{     "sources": \["api.weblyzard.com/news\_en"\],     "fields": \["keyword.key", "keyword.name", "keyword.sentiment", "keyword.count"\],     "filter": {       "text":{         "phrase":"climate change"       }     },     "beginDate":"2024-01-01",     "endDate":"2024-01-31",     "count": 10   }' |
-| :---- |
-
-| {   "result": {     "keyEntities": \[       {         "key": "http://weblyzard.com/skb/keyword/en/noun/climate\_change",         "name": {           "de": "klimawandel",           "en": "climate change",           "fr": "changement climatique",           "es": "climate change"         },         "sentiment": \-0.048035378672140146,         "count": 1581       },       {         "key": "http://weblyzard.com/skb/keyword/en/noun/davos",         "name": {           "de": "davos",           "en": "davos",           "fr": "davos",           "es": "davos"         },         "sentiment": 0.023966228648235922,         "count": 285       },       {         "key": "http://weblyzard.com/skb/keyword/en/noun/economic\_forum",         "name": {           "de": "wirtschaftsforum",           "en": "economic forum",           "fr": "forum économique",           "es": "foro económico"         },         "sentiment": 0.03826945910648424,         "count": 245       },       ...     \]   } } |
-| :---- |
-
+```curl
+ curl    --request POST   --url https://api.weblyzard.com/1.0/keyentities   --header 'Authorization: Bearer xxx'    --header 'Content-Type: application/json'    --data '{     "sources": ["api.weblyzard.com/news_en"],     "fields": ["keyword.key", "keyword.name", "keyword.sentiment", "keyword.count"],     "filter": {       "text":{         "phrase":"climate change"       }     },     "beginDate":"2024-01-01",     "endDate":"2024-01-31",     "count": 10   }' 
+```
+```json
+{
+    "result": {
+        "keyEntities": [
+            {
+                "key": "http://weblyzard.com/skb/keyword/en/noun/climate_change",
+                "name": {
+                    "de": "klimawandel",
+                    "en": "climate change",
+                    "fr": "changement climatique",
+                    "es": "climate change"
+                },
+                "sentiment": -0.048035378672140146,
+                "count": 1581
+            },
+            {
+                "key": "http://weblyzard.com/skb/keyword/en/noun/davos",
+                "name": {
+                    "de": "davos",
+                    "en": "davos",
+                    "fr": "davos",
+                    "es": "davos"
+                },
+                "sentiment": 0.023966228648235922,
+                "count": 285
+            },
+            {
+                "key": "http://weblyzard.com/skb/keyword/en/noun/economic_forum",
+                "name": {
+                    "de": "wirtschaftsforum",
+                    "en": "economic forum",
+                    "fr": "forum économique",
+                    "es": "foro económico"
+                },
+                "sentiment": 0.03826945910648424,
+                "count": 245
+            }
+        ]
+    }
+}
+```
 **Example 4: Search for the top 10 key entities within documents matching "climate change" as a phrase in the full text in January 2024 in English News Media, ranking matches on cnn.com first, returning entity key, their translated labels and entity sentiment.**
 
 ## **/entities** 
 Return aggregated entities for a given search query. In contrast to the /keyentities endpoint, /entities only considers named entity matches (e.g. GeoEntity, PersonEntity, OrganizationEntity, but not KeywordEntities). The filter object supports the same syntax as the query object, but does not affect search result ranking. Try to use filters as much as possible to speed up query times.
-
-| curl \--request POST \\   \--url https://api.weblyzard.com/1.0/entities \\   \--header 'Authorization: Bearer xxx   \--header 'Content-Type: application/json' \\   \--data '{   "sources": \[ 	"api.weblyzard.com/news\_en"     \],   "fields": \[ 	"keyword.key", 	"keyword.name", 	"keyword.sentiment", 	"keyword.count"   \],   "filter": { 	"text": {   	"phrase": "climate change" 	}   },   "entityTypes": \["geocapital"\],   "num\_keywords": 10 }' |
-| :---- |
-
-| { 	"result": {     	"keyEntities": \[         	{             	"key": "http://sws.geonames.org/184745/",             	"name": {                 	"de": "Nairobi",                 	"en": "Nairobi",                 	"fr": "Nairobi",                 	"es": "Nairobi"             	},             	"sentiment": \-0.12584571216919627,             	"count": 129         	},         	{             	"key": "http://sws.geonames.org/2643743/",             	"name": {                 	"de": "London",                 	"en": "London",                 	"fr": "Londres",                 	"es": "Londres"             	},             	"sentiment": \-0.025695290529366695,             	"count": 99         	}, …     	\] 	} } |
-| :---- |
-
+```curl
+ curl --request POST   --url https://api.weblyzard.com/1.0/entities  --header 'Authorization: Bearer xxx  --header 'Content-Type: application/json' --data '{   "sources": [ 	"api.weblyzard.com/news\_en"     ],   "fields": [ 	"keyword.key", 	"keyword.name", 	"keyword.sentiment", 	"keyword.count"   ],   "filter": { 	"text": {   	"phrase": "climate change" 	}   },   "entityTypes": ["geocapital"],   "num_keywords": 10 }'
+```
+```json
+|{
+    "result": {
+        "keyEntities": [
+            {
+                "key": "http://sws.geonames.org/184745/",
+                "name": {
+                    "de": "Nairobi",
+                    "en": "Nairobi",
+                    "fr": "Nairobi",
+                    "es": "Nairobi"
+                },
+                "sentiment": -0.12584571216919627,
+                "count": 129
+            },
+            {
+                "key": "http://sws.geonames.org/2643743/",
+                "name": {
+                    "de": "London",
+                    "en": "London",
+                    "fr": "Londres",
+                    "es": "Londres"
+                },
+                "sentiment": -0.025695290529366695,
+                "count": 99
+            }
+        ]
+    }
+}
+```
 **Example 4: Search for the top 10 geo capital named entities within documents matching "climate change" as a phrase in the full text in January 2024 in English News Media, returning the respective fields as requested.**
 
 # **Visualization API** 
@@ -383,9 +500,9 @@ Authentication and authorization is handled using JSON Web Tokens (JWT). Until t
 
 To obtain a new token, do a GET request to the /token endpoint:
 
-| $ curl \-u \<user\>:\<pass\> https://api.weblyzard.com/1.0/token |
-| :---- |
-
+```
+$ curl \-u \<user\>:\<pass\> https://api.weblyzard.com/1.0/token 
+```
 The server responds with the issued token for the user:
 
 | xxx |
@@ -396,6 +513,6 @@ For TransMIXR, the user credentials can be requested from webLyzard.
 ## **Calling API methods using the obtained token** {#calling-api-methods-using-the-obtained-token}
 
 All API calls must be authenticated using a valid token (see above). Pass the token using the “Authorization: Bearer” request header:
-
-| $ curl \-i \-H "Authorization: Bearer xxx" https://api.weblyzard.com/1.0/... |
-| :---- |
+```
+$ curl \-i \-H "Authorization: Bearer xxx" https://api.weblyzard.com/1.0/... 
+```
