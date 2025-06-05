@@ -7,10 +7,11 @@ nav_order: 5
 
 # VR2Gather
 
-VR2Gather is a Unity package to allow creating immersive social VR applications
-in Unity. Participants in a VR2Gather-based experience can be represented as
-live volumetric video, and see themselves as they are captured live, thereby
-allowing more realistic social interaction than in avatar-only based systems.
+[VR2Gather](https://github.com/cwi-dis/vr2gather) is a Unity package to allow
+creating immersive social VR applications in Unity. Participants in a
+VR2Gather-based experience can be represented as live volumetric video, and see
+themselves as they are captured live, thereby allowing more realistic social
+interaction than in avatar-only based systems.
 
 Experiences created using VR2Gather do not rely on a central cloud-based game
 engine. Each participant runs a local copy of the application, and communication
