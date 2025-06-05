@@ -52,18 +52,70 @@ Mac works, with two caveats:
 - A [VR2Gather Orchestrator](https://github.com/cwi-dis/vr2gather-orchestrator-v2),
   running somewhere on a public IP address (or at least an IP address reachable
   by all computers you are going to use for VR2Gather). Refer to the Orchestrator
-  section for more information
+  section for more information.
+
+#### Orchestrator
+
+The Orchestrator application is a server to go along with the VR2Gather
+architecture, handling user and session management as well as transmission of
+binary data between users over the network.
+
+The easiest way to run the orchestrator is through Docker. First, make sure you
+have Docker and `docker-compose` installed. Rename the file `.env-sample` to `.env`
+and adjust the values as needed. Note that if you are on a UNIX system, this
+file is likely hidden.
+
+If you set the key `EXTERNAL_HOSTNAME` in `.env` to `dynamic` or leave it unset
+completely, the server will try to determine the external hostname using the
+request headers when creating a new session. If it fails to do so, an exception
+will be raised.
+
+Next, copy the file `config/config-sample/ntp-config.json` to
+`config/ntp-config.json` and adjust as needed. The default value for the key
+server, `nl.pool.ntp.org`, should work for most people, but you may want to
+choose one geographically closer to you. Also note that the NTP protocol (or
+access to public NTP servers) may be blocked inside some corporate intranets.
+In this case, contact your IT department and enquire whether they host an
+internal NTP server. Otherwise, opt for the `localtime` option described in the
+next paragraph.
+
+You can add multiple NTP servers to this config file, they will be tried in
+order until the first one returns a valid response. Adding an entry with the
+key-value pair `"server": "localtime"` will return the host's local time without
+querying an NTP server.
+
+After setting up the config, simply build and start the container by running:
+
+    docker compose up
+
+This will build the container if it hasn't already been built and launch it on
+port 8090 (or whatever port you set in `.env`). If this fails, try calling
+`docker-compose` instead of `docker compose`. Though this means you are running
+an older version of Docker and you should consider upgrading.
+
+The orchestrator can forward binary data (e.g. point clouds) via Socket.IO,
+which is also used for all other communication. However, you also have the
+option to use an external SFU (Stream Forwarding Unit), as long as it is
+supported on the client side. External SFU binaries placed inside a folder
+`packages/` in the project root are placed in container during build time into
+the folder `/packages`. Keep this in mind when writing SFU config files. The
+corresponding config file must be placed into the folder `config/`. See the
+file `config/config-sample/webrtc-config.json` as a sample.
+
+*Optional*: install the external tools (the Dash and WebRTC SFUs) into
+`config/packages`. There are scripts in `external-packages/` to download and
+install the external tools.
 
 #### CWIPC
 
 You probably need the [CWI Point Cloud (CWIPC)](https://github.com/cwi-dis/cwipc)
-package. Refer to the CWIPC section of this site for more information.
+package.
 
 If you don't have an RGBD camera you don't need to worry about Intel Realsense
 or Microsoft Kinect support, but you still want CWIPC to be able to see
 participants that do have a camera.
 
-You will later add the cwipc_unity package to your Unity project, but this
+You will later add the `cwipc_unity` package to your Unity project, but this
 package still requires the cwipc native package to be installed on your machine.
 
 ### Create a VR2Gather Project
