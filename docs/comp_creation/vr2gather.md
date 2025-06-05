@@ -186,3 +186,191 @@ the PlayerControllers and provide the new functionality there. Then create
 variants of `P_Player` and `P_Player_Self`, reference the new controller and add
 any GameObjects you need. Finally references these new prefabs in your scene's
 SessionPlayersManager.
+
+## Setting up your Cameras
+
+Currently, `cwipc` supports Microsoft Kinect Azure and Intel RealSense series
+cameras.
+
+Both types are fully supported on Windows. On Linux both types should be
+supported, but this has not been tested recently. On Mac only the Realsense
+cameras are supported, but there are major issues at the moment (bascially you
+have to run everything as root).
+
+You should first register your cameras. This creates a file cameraconfig.json
+that will have information on camera serial numbers, where each camera is
+located and where it is pointed, and how the captured images of the cameras
+overlap. This information is needed to be able to produce a consistent point
+cloud from your collection of cameras.
+
+The preferred way to use your cameras is to put them on tripods, in portait
+mode, with all cameras having a clear view of the floor of your origin, the
+natural "central location" where your subject will be. But see below for
+situations where this is not possible.
+
+For registration of the cameras, you need to print the
+[origin Aruco marker](https://github.com/cwi-dis/cwipc_util/blob/master/data/target-a4-aruco-0.pdf).
+If that link does not work: you can also find the origin marker in your
+installation directory, in `share/cwipc/registration/target-a4-aruco-0.pdf`.
+
+Registering your cameras consists of a number of steps:
+
+- Setup your hardware.
+- Use `cwipc_register` to find your cameras. This gives you an unaligned
+  `cameraconfig.json`.
+- Use `cwipc_register` to locate the origin marker in every camera, giving you
+  a coarse alignment in `cameraconfig.json`.
+- Use `cwipc_register` to do fine alignment.
+- Manually edit `cameraconfig.json` to limit the point clouds to the subject
+  (removing floor, walls, ceiling, etc).
+
+### cwipc_register
+
+The `cwipc_register` command line utility is the swiss army knife to help you
+setup your cameras, but it is rather clunky at the moment. An interactive
+GUI-based tool will come at some point in the future.
+
+Use `cwipc_register --help` to see all the command line options it has. For now,
+we will explain the most important ones only:
+
+- `cwipc_register` without any arguments will try to do all of the needed steps
+  (but it is unlikely to succeed unless you know exactly what you are doing).
+- The `--verbose` option will show verbose output, and it will also bring up
+  windows to show you the result of every step. Close the window (or press ESC
+  with the window active) to proceed with the next step.
+- The `--rgb` will use the RGB and Depth images to do the coarse registration
+  (instead of the point clouds), if possible. This will give much better results.
+- The `--interactive` option will show you the point cloud currently captured.
+  You can press w in the point cloud window to use this capture for your
+  calibration step. If `--rgb` is also given you will be shown the captured RGB
+  data, in a separate window. The `--rgb_cw` and `--rgb_ccw` options can be
+  given to rotate the RGB images.
+- In `--interactive` mode the `cwipc_register` point cloud window works similar
+  to the `cwipc_view` window. So you can use left-mouse-drag to pan around the
+  point cloud, right-mouse-drag to move up and down, scrollwheel to zoom. `?`
+  will print some limited help on stdout.
+
+So, with all of these together, using `cwipc_register --rgb --interactive` may
+allow you to go through the whole procedure in one single step.
+
+### Hardware Setup
+
+Ensure that all cameras are working (using Realsense Viewer or Azure Kinect
+Viewer). If you have multiple cameras you are going to need sync cables to
+ensure all the shutters fire simultanously for best results. See the camera
+documentation. You probably want to disable auto-exposure, auto-whitebalance
+and all those.Set those to manual, and in such a way that the colors from all
+cameras are as close as possible.
+
+You may need USB3 range extenders (also known as active cables) to be able to
+get to all of your cameras. Ensure these work within the camera viewer.
+
+Put your origin marker on the floor and ensure all cameras can see it in RGB
+and Depth. The latter may be a bit difficult (because you can't see the marker
+in Depth).
+
+Have a person stand at the origin and ensure their head is not cut off. Adjust
+camera angles and such. Lock down the cameras, all of the adjustable screws and
+bolts and such on your tripods. And lock the tripods to the floor with gaffer
+tape.
+
+### Finding your Cameras
+
+The first step is to use `cwipc_register --noregister` to create a
+`cameraconfig.json` file that simply contains the serial number of every
+camera. If there already is such a file in the current directory this step does
+nothing. Remove the `cameraconfig.json` file if you want to re-run.
+
+Usually it will find what type of camera you have attached automatically. If
+this fails you can supply the `--kinect` or `--realsense` option to help it.
+
+### Coarse Registration
+
+The easiest way to do coarse calibration is to put the origin marker on the
+floor and run `cwipc_register --rgb --nofine`.
+
+This will run a coarse calibration step for each camera in turn, but only if
+the camera has not been coarse-calibrated before. In other words, you can run
+this multiple times if some cameras were missed the previous time. But on the
+other hand if you had to move cameras you should remove `cameraconfig.json` and
+restart at the previous step.
+
+For each camera, the RGB image is used to find the origin marker Aruco pattern.
+The Depth image is then used to find the distance and orientation of the Aruco
+marker from the camera. This information is then used to compute the 4*4
+transformation matrix from camera coordinates to world coordinates, and this
+information is stored in cameraconfig.json.
+
+If the Aruco marker cannot be found automatically you can also use a manual
+procedure, by not supplying the `--rgb` argument. You will then be provided with
+a point cloud viewer window where you have to manually select the corners of
+the marker (using shift-click with the mouse) in the right order.
+
+After this step you have a complete registration. You can run `cwipc_view` to see
+your point cloud. It should be approximately correct, but in the areas that are
+seen by multiple cameras you will see the the alignment is not perfect.
+
+### Fine Registration
+
+If you have only a single RGBD camera there is no point in doing fine
+calibration, but if you have multiple cameras it will slightly adjust the
+registration of the cameras to try and get maximum overlap of the point clouds.
+
+Have a person stand at the origin.
+
+Run `cwipc_register`. If there is already a complete coarse calibration for all
+cameras this will automatically do a fine calibration. If you are using
+`cwipc_register --interactive` type a `w` to capture a point cloud and start the
+registration.
+
+The algorithm will iterate over the cameras, making slight adjustments to the
+alignment. When it cannot improve the results any more it stops and saves
+`cameraconfig.json`.
+
+Check the results with `cwipc_view`.
+
+The algorithm is not perfect, and it can some times get into a local minimum.
+You will see this as a disjunct point cloud, often with cameras pairwise
+aligned and those pairs disaligned.
+
+The workaround is to try fine alignment again, with the subject standing in a
+different pose.
+
+At this point, if you view your point cloud with `cwipc_view` you will see that
+it contains all the walls, floor, ceiling, furniture, etc.
+
+Currently you have to fix this by manually editing `cameraconfig.json`. It
+should be possible to edit `cameraconfig.json` while `cwipc_view` is running
+and then typing `c` to reload `cameraconfig.json`. But this does not always
+work, you may have to stop and restart cwipc_view to see the result of your
+edits.
+
+#### Near and Far Points
+
+The first thing to edit is `threshold_near` and `threshold_far`. These are the
+near and far point for all depth cameras (in meters). Adjust these to get rid
+of most of the walls, while keeping the whole target area visible. Looking at
+the floor is a good way to determine how you are doing.
+
+#### Radius
+
+Only for Kinect there is another parameter you can play with: `radius_filter`
+applies a cylindrical filter around the origin.
+
+#### Repeat Fine Calibration
+
+You now have a clean capture of the subject without walls and furniture, but
+with the floor still visible. This may be the best time to do the fine
+calibration.
+
+#### Remove Floor and Ceiling
+
+Next, adjust `height_min` and `height_max` to get rid of floor and ceiling.
+Both have to be non-zero otherwise the filter will not be applied (but
+`height_min` can be less than zero if you want to keep the floor visible.
+
+#### Color Matching
+
+You probably want to play with the various exposure parameters such as
+`color_whitebalance` and `color_exposure_time` to get the best color fidelity,
+but you really have to experiment here.
