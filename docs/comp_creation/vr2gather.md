@@ -115,8 +115,54 @@ If you don't have an RGBD camera you don't need to worry about Intel Realsense
 or Microsoft Kinect support, but you still want CWIPC to be able to see
 participants that do have a camera.
 
-You will later add the `cwipc_unity` package to your Unity project, but this
-package still requires the cwipc native package to be installed on your machine.
+In order to facilitate working with point clouds as opaque objects - similar to
+how most software works with images, or audio samples - our group has developed
+an open source suite of libraries and tools that we call cwipc (abbreviation of
+CWI Point Clouds). The implementation builds on the PCL pointcloud library and
+various vendor-specific capturing libraries, but this is transparent to
+software using the cwipc suite (but it can access these representations if it
+needs to).
+
+The simplest way to install cwipc is through a prebuilt installer. This will
+install everything in the standard location, and it allows running the command
+line tools as well as developing C, C++, Python or Unity programs that use the
+cwipc library.
+
+After installation, run `cwipc_view --synthetic` from a shell (terminal window,
+command prompt). It should show you a window with a rotating synthetic point
+cloud if everything is installed correctly. There is also a command line
+utility cwipc_check that will test that all third-party requirements have been
+installed correctly. On Windows you can find these in the start menu too.
+
+- **Windows:** Download the windows installer .exe for the most recent cwipc release
+  [here](https://github.com/cwi-dis/cwipc/releases/latest).
+
+  Windows installers often fail because each Windows computer is different.
+  Moreover, cwipc depends on some third party packages (such as for Kinect
+  support) that we cannot include in our installer because of licensing issues,
+  so we have to rely on official installers for those packages.
+
+  After installing, run *Start menu* -> *cwipc* -> *Check cwipc installation*.
+  This will open a CMD command window and try to find out if everything has been
+  installed correctly. If there are any errors it may show a dialog which mentions
+  which library has not been installed correctly. There may be error messages in
+  the output window.
+- **Linux:** The installer is currently available for Ubuntu 24.04 and 22.04.
+  Download the debian package for the most recent cwipc release
+  [here](https://github.com/cwi-dis/cwipc/releases/latest).
+
+  Install from the command line with `sudo apt install ./yourpackagename.deb`.
+
+  The Kinect and Realsense SDKs will not be automatically installed, because
+  they come from different repositories and not from the standard Ubuntu/Debian
+  repositories.
+- **macOS:** The installer is available via Homebrew. Install with:
+
+      brew tap cwi-dis/cwipc
+      brew install cwipc
+
+  Verify that everything (including the Python packages and scripts) is
+  installed correctly by running `cwipc_view --version` from the command line.
 
 ### Create a VR2Gather Project
 
