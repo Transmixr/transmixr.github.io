@@ -49,14 +49,15 @@ Mac works, with two caveats:
 - You need a working NTP (or other time synchronization implementation) on your
   system. If your system clock is more than about 100 milliseconds off from
   "real time" things will get out of sync
-- A VR2Gather orchestrator, running somewhere on a public IP address (or at
-  least an IP address reachable by all computers you are going to use for
-  VR2Gather). Check the Orchestrator section for more information
+- A [VR2Gather Orchestrator](https://github.com/cwi-dis/vr2gather-orchestrator-v2),
+  running somewhere on a public IP address (or at least an IP address reachable
+  by all computers you are going to use for VR2Gather). Refer to the Orchestrator
+  section for more information
 
 #### CWIPC
 
-You probably need the CWI Point Cloud (CWIPC) package. Refer to the CWIPC
-section of this site for more information.
+You probably need the [CWI Point Cloud (CWIPC)](https://github.com/cwi-dis/cwipc)
+package. Refer to the CWIPC section of this site for more information.
 
 If you don't have an RGBD camera you don't need to worry about Intel Realsense
 or Microsoft Kinect support, but you still want CWIPC to be able to see
@@ -99,7 +100,7 @@ If you already have a Unity project and want to add VR2Gather to it:
 
       git+https://github.com/cwi-dis/VR2Gather?path=/nl.cwi.dis.vr2gather
 
-- Add the VR2Gather Essential Assets from Package Manager -> VR2Gather -> Samples
+- Add the VR2Gather Essential Assets from *Package Manager* -> *VR2Gather* -> *Samples*
   tab. These are some essential assets, the most important one being the
   LoginManager scene that must be used as the first scene in your application
   (because it creates the shared session).
@@ -125,10 +126,10 @@ as a scenario for VR2Gather.
 There are a lot of terms going to be used in this document. So let us start by
 explaining them.
 
-- A Scenario is something the participants can experience. It may consist of a
+- A **Scenario** is something the participants can experience. It may consist of a
   single scene, but it could have multiple scenes, with all participants going
   from one scene to the next together.
-- A Session is a number of participants experiencing a Scenario. One participant
+- A **Session** is a number of participants experiencing a Scenario. One participant
   creates a Session, which is then advertised at the Orchestrator. Other
   participants can then join that Session. At some point in time the creator
   starts the session, and then all participants start with the starting Scene
@@ -139,23 +140,22 @@ explaining them.
 - You have followed the steps in the Installation guide and you have a Unity
   project with VR2Gather enabled. Now you want to add your own scenario. There
   are two options:
-  - Create a new scene by copying the Pilot0 scene. Subclass any component that
-    needs different functionality (for example PilotController) and fix the
+  - Create a new scene by copying the `Pilot0` scene. Subclass any component that
+    needs different functionality (for example `PilotController`) and fix the
     scene to refer to the new component. Add your GameObjects, and remove
     GameObjects you don't need.
   - You already have a scene that works in "normal" Unity. This scene will have
     to be adapted for using VR2Gather. The most important step is that your
-    VRRig and interaction GameObjects will have to be changed. The Comparison to
-    standard Unity practices document will explain.
+    `VRRig` and interaction GameObjects will have to be changed.
 - Now you need to create a Scenario. In the LoginManager there is a GameObject
-  Tool_ScenarioRegistry with a ScenarioRegistry object. Here you add your
+  `Tool_ScenarioRegistry` with a `ScenarioRegistry` object. Here you add your
   scenario. The ScenarioID must be globally unique (use a uuid-generator once).
   The ScenarioSceneName is the first Scene used (the one you created in the
   previous step). The Name and Description are for humans only: when the first
   participant creates a session they select this scenario. Other participants
   then see the name and description when they select the session to join it.
 - Next you need to ensure your scene is available for loading at runtime. In
-  the Build Settings... dialog you can add your scene to the list.
+  the *Build Settings...* dialog you can add your scene to the list.
 - You can now try your new scenario:
   - Open the LoginManager scene and Play it.
   - Login to the Orchestrator.
@@ -180,9 +180,9 @@ If you need multiple scenes: your PilotController can open a new scene for you,
 and help you ensuring that if one participant goes to the new scene this also
 happens for all the other participants.
 
-If you need additional functionality in your P_Player and P_Self_player, for
+If you need additional functionality in your `P_Player` and `P_Self_player`, for
 example if you have multiple avatars that you want to switch between: subclass
 the PlayerControllers and provide the new functionality there. Then create
-variants of P_Player and P_Player_Self, reference the new controller and add
+variants of `P_Player` and `P_Player_Self`, reference the new controller and add
 any GameObjects you need. Finally references these new prefabs in your scene's
 SessionPlayersManager.
