@@ -1,4 +1,3 @@
-
 ---
 title: CERTH Video Analysis API Specification
 layout: home
