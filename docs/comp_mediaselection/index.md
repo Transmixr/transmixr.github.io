@@ -10,6 +10,8 @@ A toolbox for media selection and understanding.
 
 ## Where does it fit in TRANSMIXR?
 
+The Media Understanding & Selection toolbox provides tools for asset management and transformation.   
+
 ## How do I use it?
 - Contact info
 - Sign-up
@@ -17,9 +19,9 @@ A toolbox for media selection and understanding.
 
 ## What problems does it solve?
 
-Manage video content (2d, volumetric); 
-repurpose content for various production environments; 
-analyse content and provide insights;
+1. Manage video content (2d, volumetric)
+2. Repurpose content for various production environments
+3. Analyze content and provide insight
 
 ## How does it work?
 
