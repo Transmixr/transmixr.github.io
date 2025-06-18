@@ -5,9 +5,7 @@ layout: home
 parent: Video Analysis Service
 ---
 
-# webLyzard API Specification
-**CERTH Video Analysis API Specification**  
-**Application Programming Interface**
+# CERTH Video Analysis API Specification
 
 **Table of Contents**
 
