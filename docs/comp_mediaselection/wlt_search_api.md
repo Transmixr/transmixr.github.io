@@ -6,7 +6,7 @@ parent: Newsroom Toolbox
 
 # webLyzard API Specification
 
-#  **05 February 2025**
+**05 July 2025**
 
 # **Overview** {#overview}
 
