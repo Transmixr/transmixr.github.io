@@ -1,5 +1,5 @@
 ---
-title: Components - Immersive Experience
+title: Immersive Experience
 layout: home
 nav_order: 4
 ---
