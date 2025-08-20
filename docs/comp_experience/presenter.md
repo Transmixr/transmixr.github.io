@@ -1,7 +1,7 @@
 ---
 title: Spatial Media Presenter
 layout: home
-parent: Components - Immersive Experience
+parent: Immersive Experience
 nav_order: 2
 ---
 
