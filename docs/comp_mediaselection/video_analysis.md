@@ -1,7 +1,7 @@
 ---
 title: Video Analysis Service
 layout: home
-parent: Components - Media Understanding & Selection
+parent: Media Understanding & Selection
 ---
 
 # Video Analysis Service
