@@ -45,7 +45,13 @@ If both plain text and tokenized content or neither are provided, a processing e
 To create a new document, send a POST request to the `<repository>` API endpoint, with the body of the request containing the document.
 
 ```json
-{ 	"repository_id": "repository", 	"title": "document title", 	"uri": "the document's uri", 	"content": "Therefore we could show that \\"x\>y\\" and \\"y\<z.\\".", 	"content_type": "text/plain" }
+{
+    "repository_id": "repository",
+    "title": "document title",
+    "uri": "the document's uri",
+    "content": "Therefore we could show that \"x>y\" and \"y<z.\".",
+    "content_type": "text/plain"
+}
 ```
 
 **Listing 1: A minimal valid JSON document**
@@ -214,9 +220,60 @@ Accepted document encoding is limited to UTF-8.
 | meta\_data | dict a dictionary describing arbitrary document metadata that provides additional document-level information, for example: author the author of the document published\_date a date string determining when a document was published (and therefore when it will be visible in the portal). If no published\_date is provided, we will try to extract one from the content. If this fails, the submission date of the document is used as the published\_date polarity document-level sentiment polarity document\_linkage 1\) 'refers-to', n-to-n, for retweets, quotes, etc... 2\) 'child-of', 1-to-1, to model nested conversations (threaded dialogues) 3\) 'part-of' , n-to-n, document belongs to e.g. story cluster / other collection  |
 | features | dict A dictionary describing arbitrary data as key value-pairs, which complements the more well-defined meta\_data field. These key value-pairs are disregarded in the visual analytics dashboard, unless custom frontend functions were developed to process them. |
 | relations | dict A dictionary describing arbitrary document-to-document relations as key-value pairs. Document relations do not have any impact in the portal unless explicitly requested.  |
-| **Examples** |  |
-| {     "repository\_id": "media.ecoresearch.net",     "uri": "http: //www.bbc.com/news/science-environment-33524589",     "content\_type": "text/plain",     "title": "New Horizons: Nasa spacecraft speeds past Pluto",     "content": " Nasa’s spacecraft speeds past Pluto",     "meta\_data": {         "author": "Jonathan Amos"     } } |  |
-| { 	"repository\_id": "media.ecoresearch.net", 	"uri": "http: //www.bbc.com/news/science-environment-33524589", 	"title": "New Horizons: Nasa’s spacecraft speeds past Pluto", 	"sentences": \[     	{         	"id": "595f44fec1e92a71d3e9e77456ba80d1",         	"value": "New Horizons: Nasa’s spacecraft speeds past Pluto",         	"is\_title": "TRUE",         	"pos\_list": "NN NN : \\' NN : NN CC JJ NN . \\'",         	"tok\_list": "0,2 3,19 19,20 21,22 22,33 33,34 35,42 43,46 47,55 56,62 62,63 63,64",         	"sentence\_number": 0,         	"polarity": \-0.783     	} 	\], 	"annotations": \[     	{         	"start": 12,         	"end": 16,         	"sentence": "595f44fec1e92a71d3e9e77456ba80d1",         	"surface\_form": "Nasas",         	"annotation\_type": "OrganizationEntity",         	"key": "http://dbpedia.org/page/Nasa"     	},     	{         	"start": 40,         	"end": 44,         	"sentence": "595f44fec1e92a71d3e9e77456ba80d1",         	"surface\_form": "Pluto",         	"key": "http://dbpedia.org/page/Pluto",         	"annotation\_type": "GeoEntity"     	} 	\], 	"meta\_data": {     	    "polarity": "0.342",     	    "published\_date": "2015-07-14" 	}     } } |  |
+
+** Document Examples**
+```json
+{
+    "repository_id": "media.ecoresearch.net",
+    "uri": "http: //www.bbc.com/news/science-environment-33524589",
+    "content_type": "text/plain",
+    "title": "New Horizons: Nasa spacecraft speeds past Pluto",
+    "content": " Nasa’s spacecraft speeds past Pluto",
+    "meta_data": {
+        "author": "Jonathan Amos"
+    }
+}
+```
+```json
+{
+    "repository_id": "media.ecoresearch.net",
+    "uri": "http: //www.bbc.com/news/science-environment-33524589",
+    "title": "New Horizons: Nasa’s spacecraft speeds past Pluto",
+    "sentences": [
+        {
+            "id": "595f44fec1e92a71d3e9e77456ba80d1",
+            "value": "New Horizons: Nasa’s spacecraft speeds past Pluto",
+            "is_title": "TRUE",
+            "pos_list": "NN NN : ' NN : NN CC JJ NN . '",
+            "tok_list": "0,2 3,19 19,20 21,22 22,33 33,34 35,42 43,46 47,55 56,62 62,63 63,64",
+            "sentence_number": 0,
+            "polarity": -0.783
+        }
+    ],
+    "annotations": [
+        {
+            "start": 12,
+            "end": 16,
+            "sentence": "595f44fec1e92a71d3e9e77456ba80d1",
+            "surface_form": "Nasas",
+            "annotation_type": "OrganizationEntity",
+            "key": "http://dbpedia.org/page/Nasa"
+        },
+        {
+            "start": 40,
+            "end": 44,
+            "sentence": "595f44fec1e92a71d3e9e77456ba80d1",
+            "surface_form": "Pluto",
+            "key": "http://dbpedia.org/page/Pluto",
+            "annotation_type": "GeoEntity"
+        }
+    ],
+    "meta_data": {
+        "polarity": "0.342",
+        "published_date": "2015-07-14"
+    }
+}
+```
 
 | Sentence |  |
 | :---- | :---- |
@@ -232,9 +289,26 @@ Accepted document encoding is limited to UTF-8.
 | paragraph\_number | int 0-based paragraph sequence number, e.g. the index of a paragraph in the list of all document paragraphs  |
 | polarity | float sentence-level sentiment polarity as floating point in range \[-0..1\] |
 | polarity\_class | string sentence-level sentiment polarity class, with possible values \[‘positive’, ‘negative’, ‘neutral’\]  |
-| **Examples** |  |
-| {     "id": "595f44fec1e92a71d3e9e77456ba80d1",     "value": "New Horizons: Nasa’s spacecraft speeds past Pluto.",     "is\_title": False,     "pos\_list": "NNP NNP : NNP POS NN NNS IN NNP .",     "tok\_list": "0,3 4,12 12,13 14,18 18,20 21,31 32,38 39,43 44,49 49,50",     "sentence\_number": 0,     "polarity": \-0.783,     "polarity\_class": "negative" } |  |
-| {     "id": "595f44fec1e92a71d3e9e77456ba80d1",     "value": "New Horizons: Nasa’s spacecraft speeds past Pluto." } |  |
+
+** Sentence Examples**
+```json
+{
+    "id": "595f44fec1e92a71d3e9e77456ba80d1",
+    "value": "New Horizons: Nasa’s spacecraft speeds past Pluto.",
+    "is_title": false,
+    "pos_list": "NNP NNP : NNP POS NN NNS IN NNP .",
+    "tok_list": "0,3 4,12 12,13 14,18 18,20 21,31 32,38 39,43 44,49 49,50",
+    "sentence_number": 0,
+    "polarity": -0.783,
+    "polarity_class": "negative"
+}
+```
+```json
+{
+    "id": "595f44fec1e92a71d3e9e77456ba80d1",
+    "value": "New Horizons: Nasa’s spacecraft speeds past Pluto."
+}
+```
 
 | Annotation |  |
 | :---- | :---- |
@@ -251,7 +325,7 @@ Accepted document encoding is limited to UTF-8.
 | polarity\_class | string document-level sentiment polarity, with possible values \[‘positive’, ‘negative’, ‘neutral’\].  Requires annotation\_type to be sentiment. |
 | properties | dict a dictionary of additional properties associated with the annotation. The expected key value tuples in the properties depend on the type of the entity defined on the webLyzard **document** level (e.g. the key to the annotation list). Supported properties by the portal are: lat, long, population, birth\_date, abstract |
 
-**Examples**
+**Annotation Examples**
 ```json
 {
     "start": 87,
@@ -267,11 +341,36 @@ Accepted document encoding is limited to UTF-8.
 }
 ```
 ```json
-{     "start": 12,     "end": 14,     "sentence": "595f44fec1e92a71d3e9e77456ba80d1",     "surface\_form": "USA",     "key": "http://dbpedia.org/page/United\_States",     "annotation\_type": "GeoEntity",     "display\_name": "U.S.A",     "properties": {         "population": "318.900.000",         "lat": "100.0",         "long": "30.0"     } }
+{
+    "start": 12,
+    "end": 14,
+    "sentence": "595f44fec1e92a71d3e9e77456ba80d1",
+    "surface_form": "USA",
+    "key": "http://dbpedia.org/page/United_States",
+    "annotation_type": "GeoEntity",
+    "display_name": "U.S.A",
+    "properties": {
+        "population": "318.900.000",
+        "lat": "100.0",
+        "long": "30.0"
+    }
+}
 ```
 ```json
-{     "start": 12,     "end": 14,     "sentence": "595f44fec1e92a71d3e9e77456ba80d1",     "surface\_form": "USA",     "polarity": 0.655,     "annotation\_type": "Sentiment" }
+{
+    "start": 12,
+    "end": 14,
+    "sentence": "595f44fec1e92a71d3e9e77456ba80d1",
+    "surface_form": "USA",
+    "polarity": 0.655,
+    "annotation_type": "Sentiment"
+}
 ```
 ```json
-{     "start": 12,     "end": 14,     "surface\_form": "USA",     "annotation\_type": "GeoEntity" }
+{
+    "start": 12,
+    "end": 14,
+    "surface_form": "USA",
+    "annotation_type": "GeoEntity"
+}
 ```
