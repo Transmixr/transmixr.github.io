@@ -1,7 +1,7 @@
 ---
 title: Spatial Media Server
 layout: home
-parent: Components - Immersive Experience
+parent: Immersive Experience
 nav_order: 1
 ---
 
