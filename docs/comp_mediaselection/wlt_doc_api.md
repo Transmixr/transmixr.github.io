@@ -21,11 +21,11 @@ The Document API provides the following functionality:
 4. Querying an existing document from a given repository   
 5. Annotating an existing document without a given repository
 
-Usage of the document API requires an **access token**. For further information on how to obtain an access token, please refer to [Appendix A](#appendix-a:-authentication-|-authorization).
+Usage of the document API requires an **access token**. For further information on how to obtain an access token, please refer to end of this document
 
 # **Adding Documents (Create)**
 
-Documents are always added to a specific repository, the data format has to adhere to the webLyzard Document specification (see [Appendix B](#appendix-b:-weblyzard-document-format)). Adding a document will always result in 
+Documents are always added to a specific repository, the data format has to adhere to the webLyzard Document specification. Adding a document will always result in 
 
 1. the creation of a new numeric identifier and therefore a new document in the repository, regardless if the URI already exists, and   
 2. the execution of all annotation steps as defined for the repository \- an additional call to the Annotate API is therefore *not required*.
@@ -44,40 +44,43 @@ If both plain text and tokenized content or neither are provided, a processing e
 
 To create a new document, send a POST request to the /\<repository\> API endpoint, with the body of the request containing the document.
 
-| { 	"repository\_id": "repository", 	"title": "document title", 	"uri": "the document's uri", 	"content": "Therefore we could show that \\"x\>y\\" and \\"y\<z.\\".", 	"content\_type": "text/plain" } |
-| :---- |
+```json
+{ 	"repository\_id": "repository", 	"title": "document title", 	"uri": "the document's uri", 	"content": "Therefore we could show that \\"x\>y\\" and \\"y\<z.\\".", 	"content\_type": "text/plain" }
+```
 
 **Listing 1: A minimal valid JSON document**
 
-| $ curl \-H “Authorization: Bearer \<access\_token\>” \-H “Content-Type: application/json” \-d @document.json \-XPOST https://api.weblyzard.com/1.0/documents/\<repository\> |
-| :---- |
+```
+curl \-H “Authorization: Bearer \<access\_token\>” \-H “Content-Type: application/json” \-d @document.json \-XPOST https://api.weblyzard.com/1.0/documents/\<repository\>
+```
 
 **Listing 2: Adding a document to a webLyzard repository via the Document API**
 
 If the document has been successfully stored, the server responds with a “201 Created” status code and the “Location” header field contains the unique \<identifier\> created for this document.
 
-| HTTP/1.1 201 Created Location: https://api.weblyzard.com/1.0/documents/\<repository\>/\<identifier\> Content-Type: application/json; charset=UTF-8 Content-Length: ... {“created”:true, “\_id”:”\<identifier\>”} |
-| :---- |
+```
+HTTP/1.1 201 Created Location: https://api.weblyzard.com/1.0/documents/\<repository\>/\<identifier\> Content-Type: application/json; charset=UTF-8 Content-Length: ... {“created”:true, “\_id”:”\<identifier\>”}
+```
 
 **Listing 3:  REST response from the Document API (document add)**
 
-In case of error, the server will return one of multiple error codes and a description of the error. A 4xx error will be returned in case the request is malformed (e.g. “400 Bad Request”) or the user does not have the appropriate access rights (e.g. “403 Forbidden”). A 5xx error will be returned if processing on the server failed.
-
-# 
+In case of error, the server will return one of multiple error codes and a description of the error. A 4xx error will be returned in case the request is malformed (e.g. “400 Bad Request”) or the user does not have the appropriate access rights (e.g. “403 Forbidden”). A 5xx error will be returned if processing on the server failed. 
 
 # **Retrieving Documents** 
 
 The most recent version of a document can be retrieved by sending a GET request to the \<identifier\> of the document:
 
-| $ curl \-H “Authorization: Bearer \<access\_token\>” \-XGET ‘https://api.weblyzard.com/1.0/documents/\<repository\>/\<identifier\>’ |
-| :---- |
+```
+curl \-H “Authorization: Bearer \<access\_token\>” \-XGET ‘https://api.weblyzard.com/1.0/documents/\<repository\>/\<identifier\>’
+```
 
 **Listing 4: Retrieving a document from a webLyzard repository via the Document API**
 
 The server responds with a “200 OK” status code and the JSON representation of the document (as specified by the webLyzard document specification):
 
-| HTTP/1.1 200 OK Content-Type: application/json; charset=UTF-8 Content-Length: …  {“\_id”:”\<identifier\>”, “repository”:”\<repository\>”, “title”:...} |
-| :---- |
+```
+HTTP/1.1 200 OK Content-Type: application/json; charset=UTF-8 Content-Length: …  {“\_id”:”\<identifier\>”, “repository”:”\<repository\>”, “title”:...}
+```
 
 **Listing 5: REST response from the Document API (document retrieve)**
 
@@ -87,15 +90,17 @@ If the document does not exist, the server returns a “404 Not Found” respons
 
 Documents can be updated (overwritten) with a newer version of the same document.
 
-| $ curl \-H “Authorization: Bearer \<access\_token\>” \-H “Content-Type: application/json” \-d @document.json \-XPUT https://api.weblyzard.com/1.0/documents/\<repository\>/\<identifier\> |
-| :---- |
+```
+curl \-H “Authorization: Bearer \<access\_token\>” \-H “Content-Type: application/json” \-d @document.json \-XPUT https://api.weblyzard.com/1.0/documents/\<repository\>/\<identifier\>
+```
 
 **Listing 6: Updating a document in a webLyzard repository via the Document API**
 
-For further information on valid document structure to be sent to the Document API, please refer to Appendix B ([webLyzard Document Format](#appendix-b:-weblyzard-document-format)). On success, the server responds with a “200 OK” status code:
+For further information on valid document structure to be sent to the Document API, please refer to the end of this documentation). On success, the server responds with a “200 OK” status code:
 
-| HTTP/1.1 200 OK Content-Type: application/json; charset=UTF-8 Content-Length: …  {“created”:false,”updated”:true,”\_id”:”\<identifier\>”} |
-| :---- |
+```
+HTTP/1.1 200 OK Content-Type: application/json; charset=UTF-8 Content-Length: …  {“created”:false,”updated”:true,”\_id”:”\<identifier\>”}
+```
 
 **Listing 7: REST response from the Document API (document update)**  
 If there is no document referenced by \<identifier\> available, the server will respond with a “400 Bad Request” error and the document should be added using the syntax for adding documents; i.e., \<identifier\> is always created by the server and cannot be set arbitrarily by the client.
@@ -104,15 +109,17 @@ If there is no document referenced by \<identifier\> available, the server will 
 
 Documents can be deleted by issuing a DELETE request on the identifier of the document:
 
-| $ curl \-H “Authorization: Bearer \<access\_token\>” \-XDELETE ‘https://api.weblyzard.com/1.0/documents/\<repository\>/\<identifier\>’ |
-| :---- |
+```
+curl \-H “Authorization: Bearer \<access\_token\>” \-XDELETE ‘https://api.weblyzard.com/1.0/documents/\<repository\>/\<identifier\>’
+```
 
 **Listing 8: Deleting a document from a webLyzard repository via the Document API**
 
 On success, the server responds with a “200 OK” status code:
 
-| HTTP/1.1 200 OK Content-Type: application/json; charset=UTF-8 Content-Length: …  {“deleted”:true,”\_id”:”\<identifier\>”} |
-| :---- |
+```
+HTTP/1.1 200 OK Content-Type: application/json; charset=UTF-8 Content-Length: …  {“deleted”:true,”\_id”:”\<identifier\>”}
+```
 
 **Listing 9:  REST response from the Document API (document delete)**
 
@@ -130,15 +137,17 @@ The Document API currently supports the following document annotations:
 
 For information on valid document structures to be sent to the annotation service, please refer to Appendix B: webLyzard Document Format.
 
-| $ curl \-H “Authorization: Bearer \<access\_token\>” \-H “Content-Type: application/json” \-d @document.json \-XPOST https://api.weblyzard.com/1.0/annotate |
-| :---- |
+```
+curl \-H “Authorization: Bearer \<access\_token\>” \-H “Content-Type: application/json” \-d @document.json \-XPOST https://api.weblyzard.com/1.0/annotate
+```
 
 **Listing 10: Annotating a document via the Document API**
 
 If successful, the server responds with a “200 OK” response code and returns the annotated document:
 
-| HTTP/1.1 200 OK Content-Type: application/json; charset=UTF-8 Content-Length: … {...} |
-| :---- |
+```
+HTTP/1.1 200 OK Content-Type: application/json; charset=UTF-8 Content-Length: … {...}
+```
 
 **Listing 11: REST response from the Annotate API (document annotate)**
 
@@ -146,8 +155,12 @@ In case of error, the server will return one of multiple error codes and a descr
 
 To add specific annotations only, the annotation type can be included in the request:
 
-| $ curl \-H “Authorization: Bearer \<access\_token\>” \-d @document.json \-XPOST http://api.weblyzard.com/1.0/annotate/sentiment $ curl \-H “Authorization: Bearer \<access\_token\>” \-d @document.json \-XPOST http://api.weblyzard.com/1.0/annotate/sentiment+namedentities |
-| :---- |
+```
+curl \-H “Authorization: Bearer \<access\_token\>” \-d @document.json \-XPOST http://api.weblyzard.com/1.0/annotate/sentiment
+```
+```
+curl \-H “Authorization: Bearer \<access\_token\>” \-d @document.json \-XPOST http://api.weblyzard.com/1.0/annotate/sentiment+namedentities
+```
 
 **Listing 12: Annotating a document via the Annotate API with different workflows**
 
@@ -161,22 +174,22 @@ Authentication and authorization is handled using JSON Web Tokens (JWT). Until t
 
 To obtain a new token, do a GET request to the /token endpoint:
 
-| $ curl \-i \-u \<user\>:\<pass\> https://api.weblyzard.com/1.0/token |
-| :---- |
+```
+curl \-i \-u \<user\>:\<pass\> https://api.weblyzard.com/1.0/token
+```
 
 The server responds with the issued token for the user:
 
-| HTTP/1.1 200 OK Date: Tue, 17 Nov 2015 12:43:10 GMT Server: Apache/2.4.7 (Ubuntu) Content-Length: 626 Connection: close eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJwZXJtaX... |
-| :---- |
-
+```
+HTTP/1.1 200 OK Date: Tue, 17 Nov 2015 12:43:10 GMT Server: Apache/2.4.7 (Ubuntu) Content-Length: 626 Connection: close eyJ0eXAiOiJKV2QiLCJhbGciOiJIUzUxMiJ9.ey4wZXJtaX...
+```
 ## **Calling API Methods Using the Obtained Token** 
 
 All API calls must be authenticated using a valid token (see above). Pass the token using the “Authorization: Bearer” request header:
 
-| $ curl \-i \-H “Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJwZXJtaX..." https://api.weblyzard.com/1.0/documents/test/12345 |
-| :---- |
-
-# 
+```
+curl \-i \-H “Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJwZXJtaX..." https://api.weblyzard.com/1.0/documents/test/12345
+```
 
 # **Appendix B: webLyzard Document Format** 
 
