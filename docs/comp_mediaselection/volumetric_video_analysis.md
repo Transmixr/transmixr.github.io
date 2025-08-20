@@ -1,7 +1,7 @@
 ---
 title: Volumetric Video Analysis and Summarization
 layout: home
-parent: Components - Media Understanding & Selection
+parent: Media Understanding & Selection
 ---
 
 # Volumetric Video Analysis and Summarization
