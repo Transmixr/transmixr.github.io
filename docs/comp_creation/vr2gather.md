@@ -1,7 +1,7 @@
 ---
 title: VR2Gather
 layout: home
-parent: Components - Creation
+parent: Creation
 nav_order: 5
 ---
 
