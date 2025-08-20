@@ -1,7 +1,7 @@
 ---
 title: Newsroom Toolbox
 layout: home
-parent: Components - Media Understanding & Selection
+parent: Media Understanding & Selection
 ---
 
 # Newsroom Toolbox
