@@ -1,5 +1,5 @@
 ---
-title: webLyzard API Specification
+title: webLyzard Asset Search API
 layout: home
 parent: Newsroom Toolbox
 ---
