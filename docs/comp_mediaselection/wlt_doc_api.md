@@ -250,8 +250,17 @@ Accepted document encoding is limited to UTF-8.
 | polarity | float sentence-level sentiment polarity as floating point in range \[-0..1\] |
 | polarity\_class | string document-level sentiment polarity, with possible values \[‘positive’, ‘negative’, ‘neutral’\].  Requires annotation\_type to be sentiment. |
 | properties | dict a dictionary of additional properties associated with the annotation. The expected key value tuples in the properties depend on the type of the entity defined on the webLyzard **document** level (e.g. the key to the annotation list). Supported properties by the portal are: lat, long, population, birth\_date, abstract |
-| **Examples** |  |
-| {     "start": 87,     "end": 92,     "sentence": "595f44fec1e92a71d3e9e77456ba80d1",     "surface\_form": "Apple",     "key": "http://dbpedia.org/page/Apple\_Inc",     "annotation\_type": "OrganizationEntity",     "display\_name": "Apple Incorporated",     "properties": {         "founders": "Steve Jobs,Steve Wozniak,Ronald Wayne"     } } |  |
-| {     "start": 12,     "end": 14,     "sentence": "595f44fec1e92a71d3e9e77456ba80d1",     "surface\_form": "USA",     "key": "http://dbpedia.org/page/United\_States",     "annotation\_type": "GeoEntity",     "display\_name": "U.S.A",     "properties": {         "population": "318.900.000",         "lat": "100.0",         "long": "30.0"     } } |  |
-| {     "start": 12,     "end": 14,     "sentence": "595f44fec1e92a71d3e9e77456ba80d1",     "surface\_form": "USA",     "polarity": 0.655,     "annotation\_type": "Sentiment" } |  |
-| {     "start": 12,     "end": 14,     "surface\_form": "USA",     "annotation\_type": "GeoEntity" } |  |
+
+**Examples**
+```json
+{     "start": 87,     "end": 92,     "sentence": "595f44fec1e92a71d3e9e77456ba80d1",     "surface\_form": "Apple",     "key": "http://dbpedia.org/page/Apple\_Inc",     "annotation\_type": "OrganizationEntity",     "display\_name": "Apple Incorporated",     "properties": {         "founders": "Steve Jobs,Steve Wozniak,Ronald Wayne"     } }
+```
+```json
+{     "start": 12,     "end": 14,     "sentence": "595f44fec1e92a71d3e9e77456ba80d1",     "surface\_form": "USA",     "key": "http://dbpedia.org/page/United\_States",     "annotation\_type": "GeoEntity",     "display\_name": "U.S.A",     "properties": {         "population": "318.900.000",         "lat": "100.0",         "long": "30.0"     } }
+```
+```json
+{     "start": 12,     "end": 14,     "sentence": "595f44fec1e92a71d3e9e77456ba80d1",     "surface\_form": "USA",     "polarity": 0.655,     "annotation\_type": "Sentiment" }
+```
+```json
+{     "start": 12,     "end": 14,     "surface\_form": "USA",     "annotation\_type": "GeoEntity" }
+```
