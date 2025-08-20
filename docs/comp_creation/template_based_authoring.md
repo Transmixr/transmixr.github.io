@@ -1,7 +1,7 @@
 ---
 title: Template-based Authoring
 layout: home
-parent: Components - Creation
+parent: Creation
 nav_order: 3
 ---
 
