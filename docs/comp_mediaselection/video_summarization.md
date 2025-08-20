@@ -1,7 +1,7 @@
 ---
 title: Video Summarization
 layout: home
-parent: Components - Media Understanding & Selection
+parent: Media Understanding & Selection
 ---
 
 # Video Summarization
