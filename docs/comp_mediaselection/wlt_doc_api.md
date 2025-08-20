@@ -1,5 +1,5 @@
 ---
-title: webLyzard API Specification
+title: webLyzard Document API
 layout: home
 parent: Newsroom Toolbox
 ---
