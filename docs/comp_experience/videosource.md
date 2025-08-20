@@ -1,7 +1,7 @@
 ---
 title: Spatial Media Video Source
 layout: home
-parent: Components - Immersive Experience
+parent: Immersive Experience
 nav_order: 3
 ---
 
