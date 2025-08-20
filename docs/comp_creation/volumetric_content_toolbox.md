@@ -1,7 +1,7 @@
 ---
 title: Volumetric Content Toolbox
 layout: home
-parent: Components - Creation
+parent: Creation
 nav_order: 2
 ---
 
