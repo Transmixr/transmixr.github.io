@@ -1,5 +1,5 @@
 ---
-title: webLyzard Document API
+title: webLyzard Asset Upload API
 layout: home
 parent: Newsroom Toolbox
 ---
