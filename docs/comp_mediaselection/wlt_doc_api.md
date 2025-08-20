@@ -221,7 +221,7 @@ Accepted document encoding is limited to UTF-8.
 | features | dict A dictionary describing arbitrary data as key value-pairs, which complements the more well-defined meta\_data field. These key value-pairs are disregarded in the visual analytics dashboard, unless custom frontend functions were developed to process them. |
 | relations | dict A dictionary describing arbitrary document-to-document relations as key-value pairs. Document relations do not have any impact in the portal unless explicitly requested.  |
 
-** Document Examples**
+**Document Examples**
 ```json
 {
     "repository_id": "media.ecoresearch.net",
@@ -290,7 +290,7 @@ Accepted document encoding is limited to UTF-8.
 | polarity | float sentence-level sentiment polarity as floating point in range \[-0..1\] |
 | polarity\_class | string sentence-level sentiment polarity class, with possible values \[‘positive’, ‘negative’, ‘neutral’\]  |
 
-** Sentence Examples**
+**Sentence Examples**
 ```json
 {
     "id": "595f44fec1e92a71d3e9e77456ba80d1",
