@@ -1,7 +1,7 @@
 ---
 title: Sense XR
 layout: home
-parent: Components - Creation
+parent: Creation
 nav_order: 6
 ---
 
