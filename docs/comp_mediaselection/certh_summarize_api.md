@@ -118,7 +118,7 @@ Based on the selected workflow at the initial step, users have access to differe
 
 * **Summarization** or **Aspect Ratio Transformation → Summarization.** Users can upload audio tracks (MP3 or WAV) for summary fragments where original audio has been removed. Also, users can upload subtitle files in .srt or .vtt format to generate a summarized version with captions.
 
-# ![][image2]
+# ![](https://github.com/Transmixr/transmixr.github.io/blob/main/docs/assets/images/media_selection/video_summarization/step2_page.png)
 
 **Fig X. The interface of the summarization step.**
 
@@ -154,7 +154,7 @@ Based on the selected workflow at the initial step, users have access to differe
 * **Aspect Ratio Transformation only.** Users skip the summarization step and apply cropping to the entire video. Users can retain original audio or upload a new audio track. Once cropping is complete, users proceed directly to the **final page**.  
 * **Aspect Ratio Transformation → Summarization.** Users begin by adjusting the cropped area, and then proceed to the summarization step. After applying the necessary adjustments, they continue to the summarization step.
 
-![][image3]  
+![](https://github.com/Transmixr/transmixr.github.io/blob/main/docs/assets/images/media_selection/video_summarization/step3_page.png) 
 **Fig X. The interface of the aspect ratio transformation step.**
 
 # Final Page \- Results {#final-page---results}
@@ -164,3 +164,6 @@ Once video processing is complete, users can **view and download the final summa
 Notification via Email (Optional). If an email address was provided during submission, the user may safely close the web application. When the summarization is complete, an email notification will be sent. This email includes a unique link to access the results directly.
 
 **Note:** The link remains active for **24 hours**. After this period, the video, the summarization results and the email address (if provided) are **automatically and permanently deleted** from our servers.
+
+![](https://github.com/Transmixr/transmixr.github.io/blob/main/docs/assets/images/media_selection/video_summarization/final_page.png) 
+**Fig X. The interface of the results page.**
