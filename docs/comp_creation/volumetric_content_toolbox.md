@@ -4,8 +4,6 @@ layout: home
 parent: Creation
 nav_order: 2
 ---
-
-
 # Volumetric Content Toolbox
 
 ![image info](/assets/images/comp_creation/vct/vct_slovenia.png)
