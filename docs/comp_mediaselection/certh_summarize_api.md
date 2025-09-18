@@ -44,7 +44,7 @@ In case of issues or questions, please do not hesitate to contact us via:
 | **CERTH** | Ioannis Kontostathis <br> Vasileios Mezaris | [ioankont@iti.gr](mailto:ioankont@iti.gr) <br> [bmezaris@iti.gr](mailto:bmezaris@iti.gr) |
 
 
-The **CERTH Video Summarization API** is responsible for the summarization of the videos .An online interactive video summarization service that allows users to submit videos in various formats, generate summaries for use in social media channels and refine the algorithm’s selected summary and aspect ratio transformation with just a few clicks, through interactive intermediate steps. You can access the tool to the following link: [https://multimedia2.iti.gr/interactivevideosumm/service/start.html]( https://multimedia2.iti.gr/interactivevideosumm/service/start.html)
+The **CERTH Video Summarization API** is responsible for the summarization of the videos. An online interactive video summarization service that allows users to submit videos in various formats, generate summaries for use in social media channels and refine the algorithm’s selected summary and aspect ratio transformation with just a few clicks, through interactive intermediate steps. You can access the tool to the following link: [https://multimedia2.iti.gr/interactivevideosumm/service/start.html]( https://multimedia2.iti.gr/interactivevideosumm/service/start.html) The UI also includes links to video tutorials demonstrating how to use it.
 
 # Initial Step
 
