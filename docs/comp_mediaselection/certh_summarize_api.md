@@ -15,9 +15,9 @@ parent: Video Summarization
 
 [Step 1 \-  Upload video](#step-1---upload-video)
 
-[Step 2 \- Workflow Options:](#step-2---workflow-options:)
+[Step 2 \- Workflow Options](#step-2---workflow-options)
 
-[Step 3 \- Target summary /  Aspect ratio](#step-3---target-summary-/-aspect-ratio)
+[Step 3 \- Target summary / Aspect ratio](#step-3---target-summary--aspect-ratio)
 
 [Performance and Results](#performance-and-results)
 
@@ -35,29 +35,31 @@ parent: Video Summarization
 
 [Final Page \- Results](#final-page---results)
 
-# Overview {#overview}
+# Overview
 
 In case of issues or questions, please do not hesitate to contact us via:
 
-| CERTH  | Ioannis Kontostathis Vasileios Mezaris | \<[ioankont@iti.gr](mailto:ioankont@iti.gr)\> \<[bmezaris@iti.gr](mailto:bmezaris@iti.gr)\> |
-| :---- | :---- | :---- |
+|       | Names | Emails |
+| :---- | :---- | :----- |
+| **CERTH** | Ioannis Kontostathis <br> Vasileios Mezaris | [ioankont@iti.gr](mailto:ioankont@iti.gr) <br> [bmezaris@iti.gr](mailto:bmezaris@iti.gr) |
 
-The **CERTH Video Summarization API** is responsible for the summarization of the videos .An online interactive video summarization service that allows users to submit videos in various formats, generate summaries for use in social media channels and refine the algorithm’s selected summary and aspect ratio transformation with just a few clicks, through interactive intermediate steps. You can access the tool to the following link: https://multimedia2.iti.gr/interactivevideosumm/service/start.html
 
-# Initial Step {#initial-step}
+The **CERTH Video Summarization API** is responsible for the summarization of the videos .An online interactive video summarization service that allows users to submit videos in various formats, generate summaries for use in social media channels and refine the algorithm’s selected summary and aspect ratio transformation with just a few clicks, through interactive intermediate steps. You can access the tool to the following link: [https://multimedia2.iti.gr/interactivevideosumm/service/start.html]( https://multimedia2.iti.gr/interactivevideosumm/service/start.html)
+
+# Initial Step
 
 The landing page of the interactive summarization tool allows users to process video files up to 400 MB and 20 minutes in duration. The service accepts videos from YouTube, Facebook, Twitter, Instagram, Vimeo, DailyMotion, LiveLeak, and Dropbox, and supports the following formats: mp4, webm, mov, wmv, ogv, mkv, and avi.
 
 **Note:** Not all videos from these platforms are accessible, due to platform-specific restrictions or user-defined privacy settings. Additionally, submitted URLs must point to a **single video**, not a playlist.
 
-## Step 1 \-  Upload video {#step-1---upload-video}
+## Step 1 \-  Upload video
 
 Users can submit videos for processing in one of two ways:
 
 * **By URL** – Provide the direct URL of an online video.  
 * **By Upload** – Upload a local video file from their device.
 
-## Step 2 \- Workflow Options: {#step-2---workflow-options:}
+## Step 2 \- Workflow Options
 
 Before submission, users can choose one of the following processing modes:
 
@@ -66,11 +68,11 @@ Before submission, users can choose one of the following processing modes:
 * Aspect ratio transformation only  
 * Aspect ratio transformation followed by summarization
 
-## Step 3 \- Target summary /  Aspect ratio {#step-3---target-summary-/-aspect-ratio}
+## Step 3 \- Target summary / Aspect ratio
 
 After selecting a workflow, users can specify the desired **summary duration** and/or **target aspect ratio**, depending on the chosen mode. 
 
-## Performance and Results {#performance-and-results}
+## Performance and Results
 
 * The processing service operates at high speed, often significantly faster than real-time.  
 * Processing time may vary depending on server load and the number of queued requests.  
@@ -78,13 +80,13 @@ After selecting a workflow, users can specify the desired **summary duration** a
 * Once analysis is complete, results are displayed automatically through the web interface.
 
 ![](https://github.com/Transmixr/transmixr.github.io/blob/main/docs/assets/images/media_selection/video_summarization/initial_page.png)
-**Fig X. The initial page of the tool.**
+**Fig 1. The initial page of the tool.**
 
-# Summarization Step {#summarization-step}
+# Summarization Step
 
 The **Summarization Step** allows users to review and edit the automatically generated video summary by adding or removing specific temporal segments.
 
-## Interface Features {#interface-features}
+## Interface Features
 
 * **Video Player with Two Modes**:  
   * **Video Mode**: Playback and navigation are enabled across the entire video.  
@@ -106,7 +108,7 @@ The **Summarization Step** allows users to review and edit the automatically gen
   * **Top Left**: Displays the *current summary duration* and the *target summary duration* based on the user's initial selection.  
   * **Top Right**: Shows the *current video timestamp* and the *total duration* of the original video.
 
-## Different functionalities based on chosen workflow {#different-functionalities-based-on-chosen-workflow}
+## Different functionalities based on chosen workflow
 
 Based on the selected workflow at the initial step, users have access to different capabilities: 
 
@@ -120,13 +122,13 @@ Based on the selected workflow at the initial step, users have access to differe
 
 # ![](https://github.com/Transmixr/transmixr.github.io/blob/main/docs/assets/images/media_selection/video_summarization/step2_page.png)
 
-**Fig X. The interface of the summarization step.**
+**Fig 2. The interface of the summarization step.**
 
-# Aspect Ratio transformation Step {#aspect-ratio-transformation-step}
+# Aspect Ratio transformation Step
 
 The **Aspect Ratio Transformation Step** allows users to adjust and preview the results of the automatic smart-cropping algorithm.
 
-## Interface Features {#interface-features-1}
+## Interface Features
 
 * **Video Player with Bounding Box.** A bounding box overlays the video to indicate the cropped area selected by the algorithm. Users can manually adjust this box to better frame the content.
 
@@ -141,7 +143,7 @@ The **Aspect Ratio Transformation Step** allows users to adjust and preview the 
 
 * **Preview results.** A **“Preview Cropped Video”** button lets users view the current state of the smart crop in real time before finalizing their selection.
 
-## Different functionalities based on chosen workflow {#different-functionalities-based-on-chosen-workflow-1}
+## Different functionalities based on chosen workflow
 
 Based on the selected workflow at the initial step, users have access to different capabilities:
 
@@ -155,9 +157,9 @@ Based on the selected workflow at the initial step, users have access to differe
 * **Aspect Ratio Transformation → Summarization.** Users begin by adjusting the cropped area, and then proceed to the summarization step. After applying the necessary adjustments, they continue to the summarization step.
 
 ![](https://github.com/Transmixr/transmixr.github.io/blob/main/docs/assets/images/media_selection/video_summarization/step3_page.png) 
-**Fig X. The interface of the aspect ratio transformation step.**
+**Fig 3. The interface of the aspect ratio transformation step.**
 
-# Final Page \- Results {#final-page---results}
+# Final Page \- Results
 
 Once video processing is complete, users can **view and download the final summary video** by clicking the button located at the bottom of the results page.
 
@@ -166,4 +168,4 @@ Notification via Email (Optional). If an email address was provided during submi
 **Note:** The link remains active for **24 hours**. After this period, the video, the summarization results and the email address (if provided) are **automatically and permanently deleted** from our servers.
 
 ![](https://github.com/Transmixr/transmixr.github.io/blob/main/docs/assets/images/media_selection/video_summarization/final_page.png) 
-**Fig X. The interface of the results page.**
+**Fig 4. The interface of the results page.**
