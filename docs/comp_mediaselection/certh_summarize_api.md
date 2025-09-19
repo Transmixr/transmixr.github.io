@@ -79,7 +79,7 @@ After selecting a workflow, users can specify the desired **summary duration** a
 * After submission, users can keep the browser tab open to monitor progress.  
 * Once analysis is complete, results are displayed automatically through the web interface.
 
-![](/assets/images/media_selection/video_summarization/initial_page.png)
+![](https://transmixr.github.io/assets/images/media_selection/video_summarization/initial_page.png)
 **Fig 1. The initial page of the tool.**
 
 # Summarization Step
