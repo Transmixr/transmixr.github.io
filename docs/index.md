@@ -15,7 +15,8 @@ TRANSMIXR is developing the tools to make this vision a reality, fostering a vib
 
 There are three major aspects of XR technology covered by the project TRANSMIXR:
 
-[<center>COMPREHEND<br/>Making Sense of Media</center>](https://transmixr.github.io/comp_mediaselection/){: .btn .btn-purple }
-[<center>CREATION<br/>Co-create Immersive<br/>Media Experiences</center>](https://transmixr.github.io/comp_creation/){: .btn .btn-purple }
-[<center>DELIVERY<br/>Sharing and Experiencing XR</center>](https://transmixr.github.io/comp_experience/){: .btn .btn-purple }
+
+[<center>COMPREHEND<br/>Making Sense of Media</center>](https://transmixr.github.io/comp_mediaselection/){: .btn .btn-purple .mr-4}
+[<center>CREATION<br/>Co-create Immersive<br/>Media Experiences</center>](https://transmixr.github.io/comp_creation/){: .btn .btn-purple .mr-4}
+[<center>DELIVERY<br/>Sharing and Experiencing XR</center>](https://transmixr.github.io/comp_experience/){: .btn .btn-purple .mr-4}
 
