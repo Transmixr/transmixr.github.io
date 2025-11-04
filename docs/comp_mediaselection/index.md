@@ -6,7 +6,7 @@ nav_order: 2
 
 # Overview
 
-A toolbox for media selection and understanding caters to XR adaptions in workflows where there already exists media content (textual, image and video). Examples are media archives or broadcast companies, that want to repurpose their existing content via XR for more immersive story telling. Core solutions offered by the media selection and understanding components are:
+Our toolbox for media selection and understanding caters to XR adaptions in workflows where there already exists media content (textual, image and video). Examples are media archives or broadcast companies, that want to repurpose their existing content via XR for more immersive story telling. Core solutions offered by the media selection and understanding components are:
 
 * Search across languages: Find videos in any language with our AI-powered search.
 * Instant summaries: Get to the heart of any video with automatic summaries.
@@ -28,7 +28,7 @@ The Media Understanding & Selection toolbox provides tools for asset management 
 
 ## What problems does it solve?
 
-1. Manage video content (2d, volumetric)
+1. Manage media content (2d and volumetric videos and images): ingest, enrich, search
 2. Repurpose content for various production environments
 3. Analyze content and provide insight
 
@@ -41,7 +41,7 @@ The pipeline collects accessible digital content in the form of data items via a
 3. Determining the descriptive metadata for the item (NLP, NER and NEL components for keyword and entity detection).
 
 Herein, we provide documentation for 
-1. ingesting and retrieveing video assets into the webLyzard dashboard via [RESTful APIs](https://transmixr.github.io/comp_mediaselection/toolbox/).
+1. Ingesting and retrieval of media assets into the webLyzard dashboard via [RESTful APIs](https://transmixr.github.io/comp_mediaselection/toolbox/). On top of classical search, we also support vector-based similarity search on the analyzed video content (during ingest).
 2. Analysing and enriching media items via the [CERTH Analytics APIs](https://transmixr.github.io/comp_mediaselection/video_analysis/).
 3. Summarizing video content via the [CERTH Summarization API](https://transmixr.github.io/comp_mediaselection/video_summarization/).
 4. Analysis and Summarization of volumtric video via [API](https://transmixr.github.io/comp_mediaselection/volumetric_video_analysis/).
