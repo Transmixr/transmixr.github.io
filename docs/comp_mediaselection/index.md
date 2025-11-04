@@ -8,6 +8,8 @@ nav_order: 2
 
 A toolbox for media selection and understanding.
 
+<iframe width="420" height="315" src="http://www.youtube.com/embed/xbqPjo2HXbk" frameborder="0" allowfullscreen></iframe>
+
 ## Where does it fit in TRANSMIXR?
 
 The Media Understanding & Selection toolbox provides tools for asset management and transformation. Media corporations that already possess media assets such as image and video can use the media understanding and selection workflows to integrate their content into immersive story-telling applications.
