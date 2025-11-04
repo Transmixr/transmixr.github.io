@@ -9,13 +9,12 @@ nav_order: 3
 
 ## Introduction
 
-The second set of components build by the TRANSMIXR project revolve around the co-creation of immersive media experiences:
+The second set of components build by the TRANSMIXR project revolve around the **co-creation of immersive media experiences**:
 
-1. Collaborative VR tools: Work together with others in virtual reality to create amazing media.
-2. Easy-to-use tools: No technical skills required. Our tools make it simple to build and share your creations.
-3. Mix and match media: Combine different types of media to create unique and engaging experiences.
-4. Share your creations: Easily share your work with the world.
-5. Virtual Production Studio: Capture live performances and bring stories to life in XR with our live studio tools.
+* Collaborative VR tools: Work together with others in virtual reality to create amazing media. Easy-to-use tools: No technical skills required. Our tools make it simple to build and share your creations.
+* Mix and match media: Combine different types of media to create unique and engaging experiences.
+* Share your creations: Easily share your work with the world.
+* Virtual Production Studio: Capture live performances and bring stories to life in XR with our live studio tools.
 
 We present and document herein a set of technical components for capture-based media creation:
 1. [Volumetric Content Toolbox](https://transmixr.github.io/comp_creation/volumetric_content_toolbox/) -- Transform camera capture into static volumetric images.
