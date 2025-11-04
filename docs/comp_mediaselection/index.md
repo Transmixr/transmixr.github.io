@@ -15,9 +15,9 @@ A toolbox for media selection and understanding.
 
 
 To experience the Media Understanding and Selection components in action, we have integrated the TRANSMIXR technologies in the webLyzard media analytics dashboard:
-
+<p align="center">
 <iframe width="420" height="315" src="//www.youtube.com/embed/xbqPjo2HXbk" frameborder="0" allowfullscreen="allowfullscreen">&nbsp;</iframe>
-
+</p>
 ## Where does it fit in TRANSMIXR?
 
 The Media Understanding & Selection toolbox provides tools for asset management and transformation. Media corporations that already possess media assets such as image and video can use the media understanding and selection workflows to integrate their content into immersive story-telling applications.
