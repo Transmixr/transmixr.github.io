@@ -9,6 +9,10 @@ logo: "assets/images/transmixr.png"
 favicon: "assets/images/favicon.ico"
 permalink: pretty
 
+mermaid:
+  # Version of mermaid library
+  # Pick an available version from https://cdn.jsdelivr.net/npm/mermaid/
+  version: "9.1.3"
 
 
 
