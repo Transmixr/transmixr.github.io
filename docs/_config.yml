@@ -6,7 +6,7 @@ url: https://transmixr.github.io
 
 color_scheme: transmixr
 logo: "assets/images/transmixr.png"
-favicon: "assets/images/favicon.ico"
+favicon_ico: "assets/images/favicon.ico"
 permalink: pretty
 
 mermaid:
