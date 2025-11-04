@@ -8,7 +8,7 @@ nav_order: 2
 
 A toolbox for media selection and understanding.
 
-<iframe width="420" height="315" src="http://www.youtube.com/embed/xbqPjo2HXbk" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="//www.youtube.com/embed/xbqPjo2HXbk" frameborder="0" allowfullscreen="allowfullscreen">&nbsp;</iframe>
 
 ## Where does it fit in TRANSMIXR?
 
