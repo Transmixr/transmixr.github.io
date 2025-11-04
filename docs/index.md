@@ -5,9 +5,9 @@ layout: home
 nav_order: 1
 ---
 
-[GitHub](https://github.com/Transmixr){: .btn }
+[GitHub](https://github.com/Transmixr){: .btn .float-right}
 
-Home of the technical documentation of the [TRANSMIXR EU research project](https://transmixr.eu/).
+Home of the **technical documentation** of the [TRANSMIXR EU research project](https://transmixr.eu/).
 
 TRANSMIXR's goal is to develop tools and services that help <b>transform the media landscape</b> through the innovative use of <b>AI and XR technologies</b>. This website provides the technical details of the components driving these tools, inviting developers and XR inspired communities and individuals to try out and contribute to these tools. 
 
