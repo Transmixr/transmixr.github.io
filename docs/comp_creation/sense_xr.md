@@ -53,6 +53,9 @@ _Note: Other versions, such as 5.5 and Unity 6000 have been tested, but aren't o
 
 - For **Unity**, a `*.unitypackage` was exported, containing the core assets as well as sample content (a Scene and a couple of MonoBehaviors). 
 
+* SenseXR for Unreal : https://github.com/VRAIie/SenseXRUnreal
+* SenseXR for Unity : https://github.com/VRAIie/SenseXRUnity
+
 ### Target platforms
  
 A subset of the target platforms of the two supported engines can be targeted. Specifically, SenseXR can be used in development of **Android** or **Windows** applications and games via **Unreal 5** and **Unity 2022.3.X**. As the primary focus of SenseXR is the collection of data in mixed reality applications, this covers the more popular options: **Windows for PC-VR and Android for mobile VR experiences**. 
