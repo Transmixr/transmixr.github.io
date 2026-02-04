@@ -1,10 +1,6 @@
 ---
 title: CERTH Video Analysis API Specification
-layout: home
-parent: Video Analysis Service
 ---
-
-# CERTH Video Analysis API Specification
 
 **Table of Contents**
 

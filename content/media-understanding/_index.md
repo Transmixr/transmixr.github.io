@@ -44,5 +44,4 @@ Herein, we provide documentation for
 3. Summarizing video content via the [CERTH Summarization API](https://transmixr.github.io/comp_mediaselection/video_summarization/).
 4. Analysis and Summarization of volumtric video via [API](https://transmixr.github.io/comp_mediaselection/volumetric_video_analysis/).
 
-![image](/assets/images/media_selection/media-selection-overview.png)
-
+![image](/img/media_selection/media-selection-overview.png)
