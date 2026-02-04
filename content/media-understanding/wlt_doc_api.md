@@ -1,7 +1,7 @@
 ---
 title: webLyzard Asset Upload API
-layout: home
-parent: Newsroom Toolbox
+weight: 3
+indent: true
 ---
 
 # **webLyzard Asset Upload API Specification** 21 June 2025

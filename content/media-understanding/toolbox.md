@@ -1,7 +1,6 @@
 ---
 title: Newsroom Toolbox
-layout: home
-parent: Media Understanding & Selection
+weight: 1
 ---
 
 # Newsroom Toolbox

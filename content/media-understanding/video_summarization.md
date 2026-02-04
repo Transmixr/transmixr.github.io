@@ -1,7 +1,6 @@
 ---
 title: Video Summarization
-layout: home
-parent: Media Understanding & Selection
+weight: 6
 ---
 
 # Video Summarization

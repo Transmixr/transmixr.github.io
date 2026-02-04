@@ -1,7 +1,7 @@
 ---
 title: CERTH Video Summarization API Specification
-layout: home
-parent: Video Summarization
+weight: 7
+indent: true
 ---
 
 # CERTH Video Summarization Specification  

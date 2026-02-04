@@ -27,7 +27,7 @@
 
           <div class="navbar-dropdown">
             {{ range .RegularPages.ByWeight }}
-              <a class="navbar-item {{ if eq . $currentPage }}is-active{{ end }}" href="{{ .Permalink }}">
+              <a class="navbar-item {{ if .Params.indent }}ml-4{{end}} {{ if eq . $currentPage }}is-active{{ end }}" href="{{ .Permalink }}">
                 {{ .Title }}
               </a>
             {{ end }}

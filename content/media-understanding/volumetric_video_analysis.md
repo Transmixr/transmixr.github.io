@@ -1,7 +1,6 @@
 ---
 title: Volumetric Video Analysis and Summarization
-layout: home
-parent: Media Understanding & Selection
+weight: 8
 ---
 
 # Volumetric Video Analysis and Summarization

@@ -1,7 +1,7 @@
 ---
 title: webLyzard Asset Search API
-layout: home
-parent: Newsroom Toolbox
+weight: 2
+indent: true
 ---
 
 # webLyzard API Specification

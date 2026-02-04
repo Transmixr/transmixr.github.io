@@ -1,5 +1,7 @@
 ---
 title: CERTH Video Analysis API Specification
+weight: 5
+indent: true
 ---
 
 **Table of Contents**

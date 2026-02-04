@@ -1,7 +1,6 @@
 ---
 title: Video Analysis Service
-layout: home
-parent: Media Understanding & Selection
+weight: 4
 ---
 
 # Video Analysis Service
