@@ -14,4 +14,4 @@ There are three aspects of XR technology covered by the TRANSMIXR project:
 
 - [**Comprehend:** Making Sense of Media](/media-understanding)
 - [**Create:** Co-create Immersive Media Experiences](/creation)
-- [**Deliver:** Sharing and Experiencing XR](/immersiveexperiences)
+- [**Deliver:** Sharing and Experiencing XR](/immersive-experiences)
