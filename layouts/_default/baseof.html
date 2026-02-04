@@ -28,7 +28,10 @@
         {{ if not .IsHome }}
           <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
-              <li><a href="{{ relURL "/" }}">Home</a></li>
+              {{ range .Ancestors.Reverse }}
+                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+              {{ end }}
+
               <li class="is-active"><a href="#" aria-current="page">{{ .Title }}</a></li>
             </ul>
           </nav>
