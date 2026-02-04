@@ -23,74 +23,21 @@
         Home
       </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a href="/media-understanding" class="navbar-link {{ if in $understandingSubpages $page }}is-active{{ end }}">
-          Media Understanding &amp; Selection
-        </a>
+      {{ range .Site.Sections }}
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a href="{{ .Permalink }}" class="navbar-link {{ if in $understandingSubpages $page }}is-active{{ end }}">
+            {{ .Title }}
+          </a>
 
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="{{ absURL "/newsroom-toolbox" }}">
-            Newsroom Toolbox
-          </a>
-          <a class="navbar-item" href="{{ absURL "/video-analysis-service" }}">
-            Video Analysis Service
-          </a>
-          <a class="navbar-item" href="{{ absURL "/video-summarization" }}">
-            Video Summarization
-          </a>
-          <a class="navbar-item" href="{{ absURL "/volumetric-video-analysis-and-summarization" }}">
-            Volumetric Video Analysis and Summarization
-          </a>
+          <div class="navbar-dropdown">
+            {{ range .RegularPages }}
+              <a class="navbar-item" href="{{ .Permalink }}">
+                {{ .Title }}
+              </a>
+            {{ end }}
+          </div>
         </div>
-      </div>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a href="/creation" class="navbar-link {{ if in $creationSubpages $page }}is-active{{ end }}">
-          Creation
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="{{ absURL "/volumetric-content-toolbox" }}">
-            Volumetric Content Toolbox
-          </a>
-          <a class="navbar-item" href="{{ absURL "/volcap" }}">
-            Volcap
-          </a>
-          <a class="navbar-item" href="{{ absURL "/template-based-authoring" }}">
-            Template-based Authoring
-          </a>
-          <a class="navbar-item" href="{{ absURL "/vr2gather" }}">
-            VR2Gather
-          </a>
-          <a class="navbar-item" href="{{ absURL "/sensexr" }}">
-            SenseXR
-          </a>
-        </div>
-      </div>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a href="/immersive-experiences" class="navbar-link {{ if in $immersiveSubpages $page }}is-active{{ end }}">
-          Immersive Experiences
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="{{ absURL "/spatial-media-server" }}">
-            Spatial Media Server
-          </a>
-          <a class="navbar-item" href="{{ absURL "/spatial-media-presenter" }}">
-            Spatial Media Presenter
-          </a>
-          <a class="navbar-item" href="{{ absURL "/spatial-media-video-source" }}">
-            Spatial Media Video Source
-          </a>
-          <a class="navbar-item" href="{{ absURL "/spatial-media-director" }}">
-            Spatial Media Director
-          </a>
-          <a class="navbar-item" href="{{ absURL "/spatial-media-user" }}">
-            Spatial Media User
-          </a>
-        </div>
-      </div>
+      {{ end }}
     </div>
   </div>
 </nav>
