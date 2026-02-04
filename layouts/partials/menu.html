@@ -4,10 +4,10 @@
 {{ $stageSubpages := slice "co-creation-stage" "encoding-api" "pre-recorded-content-adaptation" "live-content-adaptation" }}
 {{ $immersiveSubpages := slice "social-vr" "immersive-adaptive-player" }}
 
-<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="{{ absURL "/" }}">
-      <img src="{{ absURL "images/menu_logo.png" }}">
+      <img src="{{ absURL "img/transmixr.png" }}">
     </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -25,15 +25,21 @@
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link {{ if in $spaceSubpages $page }}is-active{{ end }}">
-          Co-Creation Space
+          Media Understanding &amp; Selection
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="{{ absURL "/co-creation-space" }}">
-            Co-Creation Space
+          <a class="navbar-item" href="{{ absURL "/newsroom-toolbox" }}">
+            Newsroom Toolbox
           </a>
-          <a class="navbar-item" href="{{ absURL "/face-and-object-recognition" }}">
-            Face and Object Recognition
+          <a class="navbar-item" href="{{ absURL "/video-analysis-service" }}">
+            Video Analysis Service
+          </a>
+          <a class="navbar-item" href="{{ absURL "/newsroom-toolbox" }}">
+            Newsroom Toolbox
+          </a>
+          <a class="navbar-item" href="{{ absURL "/newsroom-toolbox" }}">
+            Newsroom Toolbox
           </a>
         </div>
       </div>
