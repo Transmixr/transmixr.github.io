@@ -1,3 +1,6 @@
 baseURL = 'https://transmixr.github.io/'
 languageCode = 'en-uk'
 title = 'TRANSMIXR Documentation'
+
+[markup.goldmark.renderer]
+unsafe = true
