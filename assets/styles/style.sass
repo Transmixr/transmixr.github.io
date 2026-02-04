@@ -1,0 +1,50 @@
+@charset "utf-8"
+
+@import "bulma/bulma"
+
+@media (min-width: 769px)
+  figure.image img
+    width: 80%
+
+@media (max-width: 768px)
+  figure.image
+    margin: 0 auto
+    width: 80%
+
+  .image.is-square
+    padding-top: 80%
+
+.youtube-container
+  position: relative
+  width: 100%
+  height: 0
+
+  margin: 0 0 30px 30px
+  padding-bottom: calc(0.8 * 56.25%)
+
+  @media (min-width: 769px)
+    width: 60%
+    padding-bottom: calc(0.65 * 56.25%)
+
+  > iframe
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+.is-hero-background
+  background-color: #F9F9F9
+
+.navbar-link.is-active, .navbar-item.is-active
+  background-color: #f17917!important
+  color: inherit
+
+.navbar-link:not(.is-arrowless)::after
+  color: inherit
+  border-color: inherit
+
+.license-logos img
+  height: 50px
