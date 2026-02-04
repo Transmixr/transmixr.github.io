@@ -1,8 +1,6 @@
 ---
 title: Spatial Media Video Source
-layout: home
-parent: Immersive Experience
-nav_order: 3
+weight: 3
 ---
 
 The Video Source is the role responsible for acquiring traditional audio and video to be displayed onto the environment.

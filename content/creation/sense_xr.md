@@ -1,8 +1,6 @@
 ---
 title: Sense XR
-layout: home
-parent: Creation
-nav_order: 6
+weight: 5
 ---
 
 

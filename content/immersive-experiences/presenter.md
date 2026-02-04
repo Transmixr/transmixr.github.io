@@ -1,8 +1,6 @@
 ---
 title: Spatial Media Presenter
-layout: home
-parent: Immersive Experience
-nav_order: 2
+weight: 2
 ---
 
 The Presenter is the role responsible for acquiring audio and volumetric visuals representing the news anchor on stage.

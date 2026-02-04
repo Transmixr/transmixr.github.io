@@ -1,8 +1,6 @@
 ---
 title: Volcap
-layout: home
-parent: Creation
-nav_order: 2
+weight: 2
 ---
 # Volumetric Capture System (Volcap)
 

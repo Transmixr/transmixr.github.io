@@ -1,8 +1,6 @@
 ---
 title: VR2Gather
-layout: home
-parent: Creation
-nav_order: 5
+weight: 4
 ---
 
 # VR2Gather

@@ -1,8 +1,6 @@
 ---
 title: Template-based Authoring
-layout: home
-parent: Creation
-nav_order: 3
+weight: 3
 ---
 
 

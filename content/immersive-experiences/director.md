@@ -1,8 +1,6 @@
 ---
 title: Spatial Media Director
-layout: home
-parent: Immersive Experience
-nav_order: 4
+weight: 4
 ---
 
 The Director is one of two roles running on a VR headset, and is responsible for monitoring and controlling live aspects of the broadcast.

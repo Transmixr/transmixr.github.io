@@ -1,8 +1,6 @@
 ---
 title: Spatial Media Server
-layout: home
-parent: Immersive Experience
-nav_order: 1
+weight: 1
 ---
 
 The Server is the only mandatory role, as it keeps track of the broadcast state, and all other roles need to connect to it in order to function.

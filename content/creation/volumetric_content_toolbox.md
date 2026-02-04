@@ -1,8 +1,6 @@
 ---
 title: Volumetric Content Toolbox
-layout: home
-parent: Creation
-nav_order: 2
+weight: 1
 ---
 # Volumetric Content Toolbox
 
