@@ -1,8 +1,4 @@
-{{ $page := trim .Page.RelPermalink "/" }}
-
-{{ $understandingSubpages := slice "newsroom-toolbox" "video-analysis-service" "video-summarization" "volumetric-video-analysis-and-summarization" }}
-{{ $creationSubpages := slice "volumetric-content-toolbox" "volcap" "template-based-authoring" "vr2gather" "sensexr" }}
-{{ $immersiveSubpages := slice "spatial-media-server" "spatial-media-presenter" "spatial-media-video-source" "spatial-media-director" "spatial-media-user" }}
+{{ $currentPage := . }}
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
@@ -19,19 +15,19 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item {{ if eq $page "" }}is-active{{ end }}" href="{{ absURL "/" }}">
+      <a class="navbar-item {{ if .IsHome }}is-active{{ end }}" href="{{ absURL "/" }}">
         Home
       </a>
 
       {{ range .Site.Sections }}
         <div class="navbar-item has-dropdown is-hoverable">
-          <a href="{{ .Permalink }}" class="navbar-link {{ if in $understandingSubpages $page }}is-active{{ end }}">
+          <a href="{{ .Permalink }}" class="navbar-link {{ if eq . $currentPage }}is-active{{ end }}">
             {{ .Title }}
           </a>
 
           <div class="navbar-dropdown">
             {{ range .RegularPages }}
-              <a class="navbar-item" href="{{ .Permalink }}">
+              <a class="navbar-item {{ if eq . $currentPage }}is-active{{ end }}" href="{{ .Permalink }}">
                 {{ .Title }}
               </a>
             {{ end }}
