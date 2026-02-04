@@ -1,54 +1,24 @@
 {{ define "main" }}
   <h2 class="title is-2">{{ .Params.title }}</h2>
-
-  <hr/>
-
-  <div class="columns">
-    <div class="column is-4">
-      <h4 class="title is-4">Table of Contents</h4>
-
-      <div class="content">
-        {{ .TableOfContents }}
-      </div>
-
-      {{ if .Params.repo_link}}
-        <div class="block">
-          <a href="{{ .Params.repo_link }}" target="_blank" class="button">
-            <span class="icon">
-              <i class="fab fa-github"></i>
-            </span>
-            <span>GitHub Repository</span>
-          </a>
-        </div>
-      {{ end }}
-    </div>
-    <div class="column is-4">
-      <h4 class="title is-4">Contact</h4>
-      <div class="block">
-        {{ partial "contactlist.html" . }}
-      </div>
-      <h4 class="title is-4">License</h4>
-      <div class="block">
-        {{ if .Params.license }}
-          All code and documentation is licensed by the original authors and contributors under the
-          <a href="{{ index .Params.license 1 }}">{{ index .Params.license 0 }} license</a>.
-        {{ else }}
-          The code is not open source. If you want to know more about it please contact us.
-        {{ end }}
-      </div>
-    </div>
-    {{ if isset .Params "logo" }}
-      <div class="column is-2 is-offset-2">
-        <figure class="image is-square">
-          <img src="{{ absURL .Params.logo }}">
-        </figure>
-      </div>
-    {{ end }}
-  </div>
-
   <hr/>
 
   <div class="content">
     {{ .Content }}
+  </div>
+
+  <hr/>
+
+  <div class="columns">
+    <div class="column">
+      <h4 class="title is-4">Table of Contents</h4>
+
+      <div class="content">
+        <ul>
+        {{ range .Pages }}
+          <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{ end }}
+        </ul>
+      </div>
+    </div>
   </div>
 {{ end }}
