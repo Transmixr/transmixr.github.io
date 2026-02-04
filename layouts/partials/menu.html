@@ -1,0 +1,78 @@
+{{ $page := trim .Page.RelPermalink "/" }}
+
+{{ $spaceSubpages := slice "co-creation-space" "face-and-object-recognition" }}
+{{ $stageSubpages := slice "co-creation-stage" "encoding-api" "pre-recorded-content-adaptation" "live-content-adaptation" }}
+{{ $immersiveSubpages := slice "social-vr" "immersive-adaptive-player" }}
+
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{{ absURL "/" }}">
+      <img src="{{ absURL "images/menu_logo.png" }}">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item {{ if eq $page "" }}is-active{{ end }}" href="{{ absURL "/" }}">
+        Home
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link {{ if in $spaceSubpages $page }}is-active{{ end }}">
+          Co-Creation Space
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="{{ absURL "/co-creation-space" }}">
+            Co-Creation Space
+          </a>
+          <a class="navbar-item" href="{{ absURL "/face-and-object-recognition" }}">
+            Face and Object Recognition
+          </a>
+        </div>
+      </div>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link {{ if in $stageSubpages $page }}is-active{{ end }}">
+          Co-Creation Stage
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="{{ absURL "/co-creation-stage" }}">
+            Co-Creation Stage
+          </a>
+          <a class="navbar-item" href="{{ absURL "/encoding-api" }}">
+            Encoding API for Co-Creation Stage
+          </a>
+          <a class="navbar-item" href="{{ absURL "/pre-recorded-content-adaptation" }}">
+            Pre-Recorded Content Adaptation
+          </a>
+          <a class="navbar-item" href="{{ absURL "/live-content-adaptation" }}">
+            Live Content Adaptation
+          </a>
+        </div>
+      </div>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link {{ if in $immersiveSubpages $page }}is-active{{ end }}">
+          Immersive Experiences
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="{{ absURL "/social-vr" }}">
+            Social VR
+          </a>
+          <a class="navbar-item" href="{{ absURL "/immersive-adaptive-player" }}">
+            Immsersive Adaptive Player
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

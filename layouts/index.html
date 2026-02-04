@@ -1,0 +1,31 @@
+{{ define "hero" }}
+  <section class="hero is-small is-hero-background">
+    <div class="hero-body">
+      <section class="section">
+        <div class="container">
+          <div class="columns is-vcentered">
+            <div class="column is-2">
+              <img src="{{ relURL "images/traction_logo.png" }}" />
+            </div>
+            <div class="column is-10">
+              <p class="title">
+                TRACTION Toolset
+              </p>
+              <p class="subtitle">
+                The complete toolset developed for the TRACTION project
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+{{ end }}
+
+{{ define "main" }}
+  <div class="content">
+    {{ .Content }}
+  </div>
+
+  {{ partial "license.html" . }}
+{{ end }}

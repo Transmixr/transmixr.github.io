@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TRACTION Toolset</title>
+    <link rel="icon" type="image/x-icon" href="{{ absURL "images/logo.png" }}">
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <script src="{{ absURL "scripts/navbar_menu.js" }}"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ (resources.Get "styles/style.sass" | resources.ToCSS).Permalink }}" />
+  </head>
+  <body>
+    {{ partial "menu.html" . }}
+
+    {{ if .IsHome }}
+      {{ block "hero" . }}{{ end }}
+    {{ end }}
+
+    <section class="section">
+      <div class="container">
+        {{ if not .IsHome }}
+          <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+              <li><a href="{{ relURL "/" }}">Home</a></li>
+              <li class="is-active"><a href="#" aria-current="page">{{ .Title }}</a></li>
+            </ul>
+          </nav>
+        {{ end }}
+
+        {{ block "main" . }}{{ end }}
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="is-flex is-justify-content-center">
+        <figure class="image is-24x24 mb-4">
+          <img src="{{ relURL "images/logo.png" }}">
+        </figure>
+      </div>
+
+      <div class="content has-text-centered">
+        <p class="is-size-6 has-text-weight-light">
+          &copy; {{ now.Format "2006" }} <a href="https://traction-project.eu">TRACTION Project</a>.<br/>
+          This site is licensed under the <a href="https://github.com/traction-project/traction-project.github.io/tree/master/LICENSE">BSD license</a>.<br/>
+          <br/>
+          <i>Last update: {{ now.Format "2006-01-02" }}</i>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

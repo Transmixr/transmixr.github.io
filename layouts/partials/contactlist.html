@@ -1,0 +1,19 @@
+{{ if .Params.contacts }}
+  {{ if eq (len .Params.contacts) 1 }}
+    {{ $contact := index .Params.contacts 0 }}
+    Please contact <a href="{{ index $contact 1 }}">{{ index $contact 0 }}</a> for more information about this tool.
+  {{ else if eq (len .Params.contacts) 2 }}
+    {{ $contact1 := index .Params.contacts 0 }}
+    {{ $contact2 := index .Params.contacts 1 }}
+    Please contact <a href="{{ index $contact1 1 }}">{{ index $contact1 0 }}</a> or <a href="{{ index $contact2 1 }}">{{ index $contact2 0 }}</a> for more information about this tool.
+  {{ else }}
+    Please contact
+    {{ range $contact := first (sub (len .Params.contacts) 2) .Params.contacts }}
+      <a href="{{ index $contact 1 }}">{{ index $contact 0 }}</a>,&nbsp;
+    {{ end }}
+
+    {{ $contact1 := index .Params.contacts (sub (len .Params.contacts) 2) }}
+    {{ $contact2 := index .Params.contacts (sub (len .Params.contacts) 1) }}
+    <a href="{{ index $contact1 1 }}">{{ index $contact1 0 }}</a> or <a href="{{ index $contact2 1 }}">{{ index $contact2 0 }}</a> for more information about this tool.
+  {{ end }}
+{{ end }}
