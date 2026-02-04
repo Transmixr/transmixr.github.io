@@ -1,8 +1,5 @@
 ---
-
 title: Home
-layout: home
-nav_order: 1
 ---
 
 Home of the **technical documentation** of the [TRANSMIXR EU research project](https://transmixr.eu/).
@@ -13,8 +10,8 @@ the technical details of the components driving these tools, inviting developers
 and XR inspired communities and individuals to try out and contribute to these
 tools.
 
-There are three aspects of XR technology covered by the project TRANSMIXR:
+There are three aspects of XR technology covered by the TRANSMIXR project:
 
-- [**COMPREHEND** Making Sense of Media](https://transmixr.github.io/comp_mediaselection/)
-- [CREATE Co-create Immersive Media Experiences](https://transmixr.github.io/comp_creation/)
-- [DELIVER Sharing and Experiencing XR](https://transmixr.github.io/comp_experience/)
+- [**Comprehend:** Making Sense of Media](/media-understanding)
+- [**Create:** Co-create Immersive Media Experiences](/creation)
+- [**Deliver:** Sharing and Experiencing XR](/immersiveexperiences)
