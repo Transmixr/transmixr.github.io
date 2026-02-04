@@ -19,14 +19,14 @@
         Home
       </a>
 
-      {{ range .Site.Sections }}
+      {{ range .Site.Sections.ByWeight }}
         <div class="navbar-item has-dropdown is-hoverable">
           <a href="{{ .Permalink }}" class="navbar-link {{ if eq . $currentPage }}is-active{{ end }}">
             {{ .Title }}
           </a>
 
           <div class="navbar-dropdown">
-            {{ range .RegularPages }}
+            {{ range .RegularPages.ByWeight }}
               <a class="navbar-item {{ if eq . $currentPage }}is-active{{ end }}" href="{{ .Permalink }}">
                 {{ .Title }}
               </a>

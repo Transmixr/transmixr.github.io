@@ -1,5 +1,6 @@
 ---
 title: Immersive Experiences
+weight: 3
 ---
 
 Spatial Media is a distributed broadcast studio based on a client/server architecture.
