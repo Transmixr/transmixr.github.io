@@ -4,44 +4,6 @@ weight: 5
 indent: true
 ---
 
-**Table of Contents**
-
-[Overview](#overview)
-
-[Video Analysis Process](#video-analysis-process)
-
-[360-Degree Video Analysis](#360-degree-video-analysis)
-
-[Image Analysis Process](#image-analysis-process)
-
-[Text Analysis Process](#text-analysis-process)
-
-[API description for the analysis of videos](#api-description-for-the-analysis-of-videos)
-
-[Example: Video analysis request](#example-video-analysis-request)
-
-[API description for the analysis of 360-degrees videos](#api-description-for-the-analysis-of-360-degrees-videos)
-
-[Example: 360-degrees video analysis request](#example-360-degrees-video-analysis-request)
-
-[API description for the analysis of images](#api-description-for-the-analysis-of-images)
-
-[Example: image collection – zip file request](#example-image-collection-–-zip-file-request)
-
-[Example: image collection – individual URLs request](#example-image-collection-–-individual-urls-request)
-
-[Checking the Status of an Analysis](#checking-the-status-of-an-analysis)
-
-[Example: Checking the status of a video analysis](#example-checking-the-status-of-a-video-analysis)
-
-[Retrieving the results](#retrieving-the-results)
-
-[Example: Retrieving the results of a video analysis](#example-retrieving-the-results-of-a-video-analysis)
-
-[Example: Retrieving the results of an image collection analysis](#example-retrieving-the-results-of-an-image-collection-analysis)
-
-[API description for the analysis of text](#api-description-for-the-analysis-of-text)
-
 # Overview
 
 In case of issues or questions, please do not hesitate to contact us via:

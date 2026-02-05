@@ -3,8 +3,6 @@ title: Video Analysis Service
 weight: 4
 ---
 
-# Video Analysis Service
-
 ## Overview
 
 The CERTH Video Analysis API is responsible for the extraction of metadata from videos, images and text. It generates structured and meaningful descriptions (also known as semantic metadata) that help systems interpret and analyze multimedia content. The API communicates with the weblyzard’s API through secure HTTPS requests. This connection enables the exchange of data and supports advanced content understanding.

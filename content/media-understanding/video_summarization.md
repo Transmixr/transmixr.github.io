@@ -3,8 +3,6 @@ title: Video Summarization
 weight: 6
 ---
 
-# Video Summarization
-
 ## Overview
 
 The CERTH Video Summarization Service is an online interactive tool that addresses the challenge of manually editing and adapting videos for various social media platforms. It automatically generates concise, shareable summaries from user-submitted videos in multiple formats. The service includes interactive steps that allow users to adjust the algorithm’s selected summaries and aspect ratios with just a few clicks, streamlining the editing process while giving users control over the final output.

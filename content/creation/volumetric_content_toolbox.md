@@ -2,11 +2,6 @@
 title: Volumetric Content Toolbox
 weight: 1
 ---
-# Volumetric Content Toolbox
-
-![image info](/assets/images/comp_creation/vct/vct_slovenia.png)
-
-## Overview
 
 The Volumetric Content Toolbox is a workflow that shows how volumetric image and video technologies are used to create interactive XR experiences. 
 The workflow was created and tested in collaboration with journalists by the example of a VR reportage on the annual ski jumping event of Planica valley in Slovenia.
@@ -19,8 +14,6 @@ Creation of interactive immersive experiences based on real spaces.
 ### How does it work?
 
 The workflow includes both postprocessing and static 3D reconstruction from recordings of a real-world scene. Image or video material is color-corrected and creatively adjusted according to a desired visual outcome. Video material can be split into individual frames before reconstruction. The reconstruction step involves Structure from Motion and reconstruction through 3D Gaussian Splatting.
-
-![image info](/assets/images/comp_creation/vct/Workflow.png)
 
 With the right plugins, Gaussian splatting assets (volumetric images) and volumetric video can be brought together into one Unity 3D application.
 
@@ -43,7 +36,6 @@ Follow the capture guidelines below.
 
 Keep splat count low for VR. 
 
-
 ### Editing
 
 - **Goal:** Clean up noisy GS reconstructions and prepare them for integration.  
@@ -56,12 +48,12 @@ Keep splat count low for VR.
 ### Preparation of Additional Assets
 
 Alongside GS content, prepare additional media:  
+
 - **Volumetric video (VV):**
   - Record a person with a single 2D camera.  
   - Process with *Volograms* to generate volumetric assets.
 - **2D video & images:** For interviews, archival footage, or overlays.  
 - **3D meshes & animations:**.  
-
 
 ### Integration
 
@@ -71,16 +63,11 @@ Alongside GS content, prepare additional media:
     - [Unity Gaussian Splatting plugin](https://github.com/aras-p/UnityGaussianSplatting).  
     - [Volograms Unity SDK](https://github.com/Volograms/volograms_unity_plugin).
 
-
-### Performance
-
-# VOLUMETRIC CAPTURE GUIDELINES
-
 # Volumetric Static Scene Capture 
 
-Terminology:  
-3DGS : 3D Gaussians (Point Cloud)  
-NeRF : Neural Radiance Fields. A learned 3D representation based on neural networks that is rendered using volume rendering techniques (expensive).
+- Terminology:  
+  - 3DGS : 3D Gaussians (Point Cloud)  
+  - NeRF : Neural Radiance Fields. A learned 3D representation based on neural networks that is rendered using volume rendering techniques (expensive).
 
 Please also read through the capture tips [provided by Luma](https://docs.lumalabs.ai/MCrGAEukR4orR9)
 
@@ -123,8 +110,6 @@ Now on to the actual capture.
 
 #### *Drones*
 
-![Capture Angles](/assets/images/comp_creation/vct/CaptureAngles.png)
-
 * Avoid nadir shots (straight down).  
 * Max. 6km/h (day), 4km/h (night) *\[this might only be true for close distance and the further away the object is, the faster you can go?\]*   
 * Keep capture below 10 minutes (because things can change a lot in a scene in this timeframe).  
@@ -151,9 +136,6 @@ What do we get out of this?
 1. **3D Gaussian Splatting point cloud (viewable in specialized viewers on web or other 3D engines).** Contains real lighting.  
 2. A NeRF representation (not easily viewable).  
 3. **Textured polygon meshes**. Can be extracted from 1\. or 2\. Currently does not contain real lighting.
-
-
-
 
 # Publications
 

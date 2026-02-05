@@ -4,37 +4,6 @@ weight: 7
 indent: true
 ---
 
-# CERTH Video Summarization Specification  
-**Application Programming Interface**
-
-**Table of Contents**
-
-[Overview](#overview)
-
-[Initial Step](#initial-step)
-
-[Step 1 \-  Upload video](#step-1---upload-video)
-
-[Step 2 \- Workflow Options](#step-2---workflow-options)
-
-[Step 3 \- Target summary / Aspect ratio](#step-3---target-summary--aspect-ratio)
-
-[Performance and Results](#performance-and-results)
-
-[Summarization Step](#summarization-step)
-
-[Interface Features](#interface-features)
-
-[Different functionalities based on chosen workflow](#different-functionalities-based-on-chosen-workflow)
-
-[Aspect Ratio transformation Step](#aspect-ratio-transformation-step)
-
-[Interface Features](#interface-features-1)
-
-[Different functionalities based on chosen workflow](#different-functionalities-based-on-chosen-workflow-1)
-
-[Final Page \- Results](#final-page---results)
-
 # Overview
 
 In case of issues or questions, please do not hesitate to contact us via:

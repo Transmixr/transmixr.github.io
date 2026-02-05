@@ -4,10 +4,6 @@ weight: 2
 indent: true
 ---
 
-# webLyzard API Specification
-
-**05 July 2025**
-
 # **Overview** {#overview}
 
 

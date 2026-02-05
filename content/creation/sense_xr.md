@@ -3,9 +3,6 @@ title: Sense XR
 weight: 5
 ---
 
-
-# Sense XR
-
 **SenseXR** is a multiplatform, lightweight solution for capturing and storing of data from multiple sources in a structured way. These sources can be the game engines the experience is running on, external sensors or additional hardware. 
 
 ## Overview

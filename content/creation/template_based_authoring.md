@@ -3,19 +3,16 @@ title: Template-based Authoring
 weight: 3
 ---
 
-
-# Template-based Authoring
-
-The template-based authoring approach is intended to support rapid creation of XR  
-experiences. A template is a pre-designed and pre-defined format that serves as a  
-foundation for creating XR experiences. Templates allow non-technical users to  
-create XR experiences by modifying various design features. These may include  
-adjusting experience elements such as selecting and populating interactions,  
-adding content objects, selecting games, and more, all as part of the XR experience.  
-This means that the same template can be (re-)used by the same organisation  
-multiple times to create experiences around different topics at a lower cost. This  
-concept has been informed by the requirements of and developed and tested in the  
-cultural heritage use case but as a tool is broadly applicable to the Creative and  
+The template-based authoring approach is intended to support rapid creation of XR
+experiences. A template is a pre-designed and pre-defined format that serves as a
+foundation for creating XR experiences. Templates allow non-technical users to
+create XR experiences by modifying various design features. These may include
+adjusting experience elements such as selecting and populating interactions,
+adding content objects, selecting games, and more, all as part of the XR experience.
+This means that the same template can be (re-)used by the same organisation
+multiple times to create experiences around different topics at a lower cost. This
+concept has been informed by the requirements of and developed and tested in the
+cultural heritage use case but as a tool is broadly applicable to the Creative and
 Cultural sector.
 
 ## **Overview**

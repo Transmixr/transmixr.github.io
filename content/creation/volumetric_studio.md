@@ -2,9 +2,8 @@
 title: Volcap
 weight: 2
 ---
-# Volumetric Capture System (Volcap)
 
-**Volcap** is CERTH's VCL3D volumetric capture system, designed with flexibility and extensibility in mind.  
+**Volcap** (Volumetric Capture System) is CERTH's VCL3D volumetric capture system, designed with flexibility and extensibility in mind.  
 It integrates a wide range of functionalities essential for live and offline volumetric workflows, including:
 
 - **Live streaming** of multi-camera RGB-D data  

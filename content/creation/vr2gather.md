@@ -3,8 +3,6 @@ title: VR2Gather
 weight: 4
 ---
 
-# VR2Gather
-
 [VR2Gather](https://github.com/cwi-dis/vr2gather) is a Unity package to allow
 creating immersive social VR applications in Unity. Participants in a
 VR2Gather-based experience can be represented as live volumetric video, and see

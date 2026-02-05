@@ -3,8 +3,6 @@ title: Volumetric Video Analysis and Summarization
 weight: 8
 ---
 
-# Volumetric Video Analysis and Summarization
-
 # **Overview** {#overview}
 
 Volumetric video (VV) is a burgeoning media format, important for future applications of XR applications. It captures real-world subjects in 3D, allowing them to be viewed from any angle in a virtual environment, enhancing realism and interactivity of immersive applications. However it can be challenging for XR creators to work with such datasets due to their large size and complexity, as they represent detailed, photorealistic 3D shape and appearance information animated across often lengthy temporal sequences. Furthermore, the tools and standards to deal with this data type are fragmented and most have not yet reached the level of maturity of tools for processing other media assets such as video or traditional 3D models.
