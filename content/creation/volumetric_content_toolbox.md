@@ -1,5 +1,5 @@
 ---
-title: Volumetric Content Toolbox
+title: AI-Based Volumetric Content Toolbox
 weight: 1
 ---
 

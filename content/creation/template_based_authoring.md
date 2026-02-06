@@ -1,5 +1,5 @@
 ---
-title: Template-based Authoring
+title: Curator Studio
 weight: 3
 ---
 

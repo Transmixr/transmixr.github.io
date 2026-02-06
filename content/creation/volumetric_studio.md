@@ -1,5 +1,5 @@
 ---
-title: Volcap
+title: Volumetric Studio
 weight: 2
 ---
 
