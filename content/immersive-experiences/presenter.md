@@ -1,6 +1,7 @@
 ---
 title: Spatial Media Presenter
-weight: 2
+weight: 3
+indent: true
 ---
 
 The Presenter is the role responsible for acquiring audio and volumetric visuals representing the news anchor on stage.

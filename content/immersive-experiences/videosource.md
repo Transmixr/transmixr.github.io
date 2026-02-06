@@ -1,11 +1,13 @@
 ---
 title: Spatial Media Video Source
-weight: 3
+weight: 4
+indent: true
 ---
 
 The Video Source is the role responsible for acquiring traditional audio and video to be displayed onto the environment.
 
 ### Install
+
 The recommended way to install the Video Source role is through the provided Video Source Setup program. This tutorial will assume that you have installed all optional features provided by Video Source Setup.
 
 <details>
@@ -19,6 +21,7 @@ vMix Preset | Provides a broadcast-ready preset for vMix. This feature does not 
 </details>
 
 ### Startup
+
 The Spatial Media Video Source app can be started from its provided shortcut on the Start Menu.
 
 Launch Spatial Media Video Source, then enter the IP address of the Server machine into the Network prompt. Two boxes, labeled "Video Device" and "Audio Device" should appear.

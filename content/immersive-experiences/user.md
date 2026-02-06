@@ -1,8 +1,7 @@
 ---
 title: Spatial Media User
-layout: home
-parent: Immersive Experience
-weight: 5
+weight: 6
+indent: true
 ---
 
 The User is the role intended for end users, or spectators, to view the final broadcast and interact with each other. Like the Director, it is meant to run on a VR headset.
