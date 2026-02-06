@@ -26,6 +26,7 @@ NDI Tools     | Installs the NDI Tools program, which can be used to establish a
 </details>
 
 ### Startup
+
 All apps mentioned below can be started using shortcuts on the Start Menu.
 
 First, start the WebRTC Signaling Server. A terminal window should be displayed, this is where subsequent requests to the signaling server will appear.
