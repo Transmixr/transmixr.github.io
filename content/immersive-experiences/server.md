@@ -7,6 +7,7 @@ indent: true
 The Server is the only mandatory role, as it keeps track of the broadcast state, and all other roles need to connect to it in order to function.
 
 ### Install
+
 The recommended way to install the Server role is through the provided Server Setup program. This tutorial will assume that you have installed all optional features provided by Server Setup.
 
 <details>
