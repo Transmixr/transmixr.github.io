@@ -6,19 +6,21 @@
     {{ .Content }}
   </div>
 
-  <hr/>
+  {{ if not .Params.disableTableOfContents }}
+    <hr/>
 
-  <div class="columns">
-    <div class="column">
-      <h4 class="title is-4">Table of Contents</h4>
+    <div class="columns">
+      <div class="column">
+        <h4 class="title is-4">Table of Contents</h4>
 
-      <div class="content">
-        <ul>
-        {{ range .Pages }}
-          <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-        {{ end }}
-        </ul>
+        <div class="content">
+          <ul>
+          {{ range .Pages }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+          {{ end }}
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
+  {{ end }}
 {{ end }}
