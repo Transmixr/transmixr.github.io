@@ -21,6 +21,8 @@
 
     {{ if .IsHome }}
       {{ block "hero" . }}{{ end }}
+    {{ else }}
+      <div class="section-hero hero-background"></div>
     {{ end }}
 
     <section class="section">
