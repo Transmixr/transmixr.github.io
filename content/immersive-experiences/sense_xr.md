@@ -29,6 +29,8 @@ It acts as a solution that allows for the capture of data, directly integrated i
 
 - **Time Series Data**: This is data that is collected periodically (polled). The capturing of this data relies on _Data Collectors_ that poll data sources, such as sensors (heart rate, IMU, GSR) or in-engine (NPC position, Player’s gaze)  at fixed intervals. Data collectors are specified by the developer in terms of what data they capture and the specific interval they should run at. This allows for different sources to have their data polled at a per-source rate (e.g.: Heart Rate at 30Hz, Gaze at 120Hz). Each collector runs in the background in a separate thread.
 
+![folder contents](/img/comp_creation/sense_xr/sample-capture-content.png)
+
 In terms of the data egress, the data is saved locally, in the same device running the experiment. As you can see in the image above, showing the results of a capture session for a sample integration, the resulting capture data has the following characteristics:
 - One single `JSON` file exists per session, containing all the collected  _Experience Events_ during the session. If the session is interrupted or aborted, the events that were captured up until that point are saved. The JSON file follows this nomenclature: `"${SessionGUID}_${UserID}_${TimeStamp}.json"`.
 
