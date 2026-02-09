@@ -1,0 +1,23 @@
+{{ $lines := split .Inner "\n" }}
+{{ $header := .Params.header }}
+
+<table class="table is-bordered is-halfwidth">
+  {{ if $header }}
+    <thead>
+      <tr>
+        <th>{{ $header }}</th>
+      </tr>
+    </thead>
+  {{ end }}
+  <tbody>
+    {{ range $lines }}
+      {{ $line := trim . " " }}
+
+      {{ if $line }}
+        <tr>
+          <td>{{ . | markdownify }}</td>
+        </tr>
+      {{ end}}
+    {{ end}}
+  </tbody>
+</table>
