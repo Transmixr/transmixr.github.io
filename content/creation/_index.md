@@ -15,8 +15,10 @@ The second set of components build by the TRANSMIXR project revolve around the *
 
 We present and document herein a set of technical components for capture-based media creation:
 
-1. [AI-Based Volumetric Content Toolbox](/creation/volumetric_content_toolbox/) -- Transform camera capture into static volumetric images.
-2. [Volumetric Studio](/creation/volumetric_studio/) -- Workflows for streaming and offline capture of volumetric video.
-3. [Curator Studio](/creation/template_based_authoring/) -- Choose from a wide set of interaction and object templates to efficiently and easily jump-start the creation of XR scenarios.
-4. [VR2Gather](/creation/vr2gather/) -- a Unity package to allow creating immersive social VR applications in Unity.
-5. [XR Gallery](/creation/xr_gallery/) -- a collaborative XR broadcast control application that replicates a real world studio in an immersive virtual environment.
+## Pages in this Section
+
+- [AI-Based Volumetric Content Toolbox](/creation/volumetric_content_toolbox/) -- Transform camera capture into static volumetric images.
+- [Volumetric Studio](/creation/volumetric_studio/) -- Workflows for streaming and offline capture of volumetric video.
+- [Curator Studio](/creation/template_based_authoring/) -- Choose from a wide set of interaction and object templates to efficiently and easily jump-start the creation of XR scenarios.
+- [VR2Gather](/creation/vr2gather/) -- a Unity package to allow creating immersive social VR applications in Unity.
+- [XR Gallery](/creation/xr_gallery/) -- a collaborative XR broadcast control application that replicates a real world studio in an immersive virtual environment.

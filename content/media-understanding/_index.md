@@ -1,6 +1,7 @@
 ---
 title: Media Understanding & Selection
 weight: 1
+disableTableOfContents: true
 ---
 
 # Overview
@@ -39,10 +40,22 @@ The pipeline collects accessible digital content in the form of data items via a
 2. Extracting or creating technical metadata for the item; and
 3. Determining the descriptive metadata for the item (NLP, NER and NEL components for keyword and entity detection).
 
-Herein, we provide documentation for 
-1. Ingesting and retrieval of media assets into the webLyzard dashboard via [RESTful APIs](https://transmixr.github.io/comp_mediaselection/toolbox/). On top of classical search, we also support vector-based similarity search on the analyzed video content (during ingest).
-2. Analysing and enriching media items via the [CERTH Analytics APIs](https://transmixr.github.io/comp_mediaselection/video_analysis/).
-3. Summarizing video content via the [CERTH Summarization API](https://transmixr.github.io/comp_mediaselection/video_summarization/).
-4. Analysis and Summarization of volumtric video via [API](https://transmixr.github.io/comp_mediaselection/volumetric_video_analysis/).
+Herein, we provide documentation for
+
+1. Ingesting and retrieval of media assets into the webLyzard dashboard via [RESTful APIs](/media-understanding/toolbox). On top of classical search, we also support vector-based similarity search on the analyzed video content (during ingest).
+2. Analysing and enriching media items via the [CERTH Analytics APIs](/media-understanding/video_analysis).
+3. Summarizing video content via the [CERTH Summarization API](/media-understanding/video_summarization/).
+4. Analysis and Summarization of volumtric video via [API](/media-understanding/volumetric_video_analysis/).
 
 ![image](/img/media_selection/media-selection-overview.png)
+
+## Pages in this Section
+
+- [Newsroom Toolbox](/media-understanding/toolbox)
+  - [webLyzard Asset Search API](/media-understanding/wlt_search_api)
+  - [webLyzard Asset Upload API](/media-understanding/wlt_doc_api)
+- [Video Analysis Service](/media-understanding/video_analysis)
+  - [CERTH Video Analysis API Specification](/media-understanding/certh_annotate_api)
+- [Video Summarization](/media-understanding/video_summarization)
+  - [CERTH Video Summarization API Specification](/media-understanding/certh_summarize_api)
+- [Volumetric Video Analysis and Summarization](/media-understanding/volumetric_video_analysis)
