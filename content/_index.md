@@ -50,7 +50,7 @@ technology components.
   [Volumetric Studio](/creation/volumetric_studio)
   [XR Gallery](/creation/xr_gallery)
   [VR2Gather](/creation/vr2gather)
-  [Live Volumetric Head Avatars](/)
+  [Live Volumetric Head Avatars](/creation/liveavatar)
 {{</single-col-table>}}
 
 #### CAI Performing Arts

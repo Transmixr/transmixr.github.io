@@ -22,3 +22,4 @@ We present and document herein a set of technical components for capture-based m
 - [Curator Studio](/creation/template_based_authoring/) -- Choose from a wide set of interaction and object templates to efficiently and easily jump-start the creation of XR scenarios.
 - [VR2Gather](/creation/vr2gather/) -- a Unity package to allow creating immersive social VR applications in Unity.
 - [XR Gallery](/creation/xr_gallery/) -- a collaborative XR broadcast control application that replicates a real world studio in an immersive virtual environment.
+- [Live Volumetric Head Avatars](/creation/liveavatar) -- converts a monocular portrait video stream into a 3D volumetric avatar representation of the recorded person in real-time.
