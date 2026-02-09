@@ -22,14 +22,12 @@ Both Unity and Unreal engines are supported as, respectively, a Unity Package an
 It acts as a solution that allows for the capture of data, directly integrated in the Unity and Unreal game engines in open formats (_JSON_ and _CSV_) for two generic types of data, namely:
 
 - **Experience Events** happen during the experience. They may occur more than once, but they consist on actions that have a certain outcome and happened in a specific time and place during the session (e.g.: The user opened a door; an NPC turned on the televison). This way, the _“who”_, _“what”_, _“when”_, _“how”_ of the user and NPC interactions can be captured, so that the _“why”_ can be studied, helping in not only capturing but understanding behaviours. These follow a structure that was inspired by the [xAPI](https://xapi.com/) statements. 
-  
+
   **Experience Events** are captured (pushed) by the developer whenever an event of interest is detected and can be further broken down into two subtypes:
   - **Interaction Events** focus on capturing interactions between participants (real or synthetic) and their actions during the experience. These are the traces of their behaviours and can help build timelines and chains of causalities that provide insights into decision making processes;
   - **Session Events** hold information regarding scene / act transitions as well as overall session duration and outcome (e.g.: “the session was interrupted”, “it concluded”, “successfully/unsuccessfully”). This meta information can be usefull when analysing data to identify certain sessions, or, for instance, to filter out sessions that were too short or didn't finish successfully.
 
 - **Time Series Data**: This is data that is collected periodically (polled). The capturing of this data relies on _Data Collectors_ that poll data sources, such as sensors (heart rate, IMU, GSR) or in-engine (NPC position, Player’s gaze)  at fixed intervals. Data collectors are specified by the developer in terms of what data they capture and the specific interval they should run at. This allows for different sources to have their data polled at a per-source rate (e.g.: Heart Rate at 30Hz, Gaze at 120Hz). Each collector runs in the background in a separate thread.
-
-![folder contents](/docs/assets/images/comp_creation/sense_xr/sample-capture-content.png)
 
 In terms of the data egress, the data is saved locally, in the same device running the experiment. As you can see in the image above, showing the results of a capture session for a sample integration, the resulting capture data has the following characteristics:
 - One single `JSON` file exists per session, containing all the collected  _Experience Events_ during the session. If the session is interrupted or aborted, the events that were captured up until that point are saved. The JSON file follows this nomenclature: `"${SessionGUID}_${UserID}_${TimeStamp}.json"`.
