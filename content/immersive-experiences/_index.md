@@ -39,3 +39,4 @@ Julien CASTET `<julien.castet@immersion.fr>`
   - [Spatial Media Director](/immersive-experiences/director)
   - [Spatial Media User](/immersive-experiences/user)
 - [SenseXR](/immersive-experiences/sense_xr)
+- [AI Character / NPC Layer](/immersive-experiences/ai_npc)
