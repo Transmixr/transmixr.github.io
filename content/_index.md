@@ -31,30 +31,39 @@ technology components.
 
 #### Newsroom of the Future - News Media
 
-- AI-Based Volumetric Content Toolbox
-- Newsroom AI toolbox
+{{<single-col-table header="Component">}}
+  [AI-Based Volumetric Content Toolbox](/creation/volumetric_content_toolbox)
+  [Newsroom AI toolbox](/media-understanding/toolbox)
+{{</single-col-table>}}
 
 #### TRANSMIXR TV Pilot Programme (commercial version)
 
-- Volumetric Studio
-- Spatial Media Studio
-- VR2Gather
-- SenseXR
+{{<single-col-table header="Component">}}
+  [Spatial Media Studio](/immersive-experiences/spatial_media_studio)
+  [VR2Gather](/creation/vr2gather)
+  [SenseXR](/immersive-experiences/sense_xr)
+{{</single-col-table>}}
 
 #### TRANSMIXR TV Pilot Programme (research version)
 
-- Volumetric Studio
-- XR Gallery
-- VR2Gather
-- Live Volumetric Head Avatars
+{{<single-col-table header="Component">}}
+  [Volumetric Studio](/creation/volumetric_studio)
+  [XR Gallery](/creation/xr_gallery)
+  [VR2Gather](/creation/vr2gather)
+  [Live Volumetric Head Avatars](/)
+{{</single-col-table>}}
 
 #### CAI Performing Arts
 
-- AI-Based Volumetric Content Toolbox
-- SenseXR
-- AI NPC
+{{<single-col-table header="Component">}}
+  [AI-Based Volumetric Content Toolbox](/creation/volumetric_content_toolbox)
+  [SenseXR](/immersive-experiences/sense_xr)
+  [AI NPC](/immersive-experiences/ai_npc)
+{{</single-col-table>}}
 
 #### Cultural Heritage
 
-- Curator Studio
-- VR2Gather
+{{<single-col-table header="Component">}}
+  [Curator Studio](/creation/template_based_authoring)
+  [VR2Gather](/creation/vr2gather)
+{{</single-col-table>}}
