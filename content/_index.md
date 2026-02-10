@@ -16,6 +16,8 @@ There are three aspects of XR technology covered by the TRANSMIXR project:
 - [**Create:** Co-create Immersive Media Experiences](/creation)
 - [**Immersive Experiences:** Sharing and Experiencing XR](/immersive-experiences)
 
+{{<figure "/img/home/architecture.png" />}}
+
 The TRANSMIXR Platform is a set of publicly accessible APIs and software
 components facilitating XR experiences. It has been developed following a
 bottom-up approach, ensuring that users and stakeholders are the true drivers
@@ -29,41 +31,76 @@ reusability and interoperability between them and evaluating the drawbacks and
 benefits of each one of them. Below, it is the mapping between use cases and
 technology components.
 
-#### Newsroom of the Future - News Media
+### Newsroom of the Future - News Media
 
-{{<single-col-table header="Component">}}
-  [AI-Based Volumetric Content Toolbox](/creation/volumetric_content_toolbox)
-  [Newsroom AI toolbox](/media-understanding/toolbox)
-{{</single-col-table>}}
+{{<columns>}}
+  {{<column width="8">}}
+    {{<figure "/img/home/news_media.png" />}}
+  {{</column>}}
+  {{<column width="4">}}
+    {{<single-col-table header="Component">}}
+[AI-Based Volumetric Content Toolbox](/creation/volumetric_content_toolbox)
+[Newsroom AI toolbox](/media-understanding/toolbox)
+    {{</single-col-table>}}
+  {{</column>}}
+{{</columns>}}
 
-#### TRANSMIXR TV Pilot Programme (commercial version)
+### TRANSMIXR TV Pilot Programme (commercial version)
 
-{{<single-col-table header="Component">}}
-  [Spatial Media Studio](/immersive-experiences/spatial_media_studio)
-  [VR2Gather](/creation/vr2gather)
-  [SenseXR](/immersive-experiences/sense_xr)
-{{</single-col-table>}}
+{{<columns>}}
+  {{<column width="8">}}
+    {{<figure "/img/home/news_broadcast_1.png" />}}
+  {{</column>}}
+  {{<column width="4">}}
+    {{<single-col-table header="Component">}}
+[Spatial Media Studio](/immersive-experiences/spatial_media_studio)
+[VR2Gather](/creation/vr2gather)
+[SenseXR](/immersive-experiences/sense_xr)
+    {{</single-col-table>}}
+  {{</column>}}
+{{</columns>}}
 
-#### TRANSMIXR TV Pilot Programme (research version)
+### TRANSMIXR TV Pilot Programme (research version)
 
-{{<single-col-table header="Component">}}
-  [Volumetric Studio](/creation/volumetric_studio)
-  [XR Gallery](/creation/xr_gallery)
-  [VR2Gather](/creation/vr2gather)
-  [Live Volumetric Head Avatars](/creation/liveavatar)
-{{</single-col-table>}}
+{{<columns>}}
+  {{<column width="8">}}
+    {{<figure "/img/home/news_broadcast_2.png" />}}
+  {{</column>}}
+  {{<column width="4">}}
+    {{<single-col-table header="Component">}}
+[Volumetric Studio](/creation/volumetric_studio)
+[XR Gallery](/creation/xr_gallery)
+[VR2Gather](/creation/vr2gather)
+[Live Volumetric Head Avatars](/creation/liveavatar)
+    {{</single-col-table>}}
+  {{</column>}}
+{{</columns>}}
 
-#### CAI Performing Arts
+### CAI Performing Arts
 
-{{<single-col-table header="Component">}}
-  [AI-Based Volumetric Content Toolbox](/creation/volumetric_content_toolbox)
-  [SenseXR](/immersive-experiences/sense_xr)
-  [AI NPC](/immersive-experiences/ai_npc)
-{{</single-col-table>}}
+{{<columns>}}
+  {{<column width="8">}}
+    {{<figure "/img/home/performing_arts.png" />}}
+  {{</column>}}
+  {{<column width="4">}}
+    {{<single-col-table header="Component">}}
+[AI-Based Volumetric Content Toolbox](/creation/volumetric_content_toolbox)
+[SenseXR](/immersive-experiences/sense_xr)
+[AI NPC](/immersive-experiences/ai_npc)
+    {{</single-col-table>}}
+  {{</column>}}
+{{</columns>}}
 
-#### Cultural Heritage
+### Cultural Heritage
 
-{{<single-col-table header="Component">}}
-  [Curator Studio](/creation/template_based_authoring)
-  [VR2Gather](/creation/vr2gather)
-{{</single-col-table>}}
+{{<columns>}}
+  {{<column width="8">}}
+    {{<figure "/img/home/cultural_heritage.png" />}}
+  {{</column>}}
+  {{<column width="4">}}
+    {{<single-col-table header="Component">}}
+[Curator Studio](/creation/template_based_authoring)
+[VR2Gather](/creation/vr2gather)
+    {{</single-col-table>}}
+  {{</column>}}
+{{</columns>}}
