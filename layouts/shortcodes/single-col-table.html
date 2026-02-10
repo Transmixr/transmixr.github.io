@@ -1,7 +1,7 @@
 {{ $lines := split .Inner "\n" }}
 {{ $header := .Params.header }}
 
-<table class="table is-bordered">
+<table class="table is-bordered {{ if $header }}has-header{{ end }}">
   {{ if $header }}
     <thead>
       <tr>
