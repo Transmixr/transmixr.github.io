@@ -1,0 +1,9 @@
+{{ $name := .Get 0 }}
+{{ $caption := .Inner }}
+
+<figure class="image">
+  <img src="{{ $name }}" />
+  {{ if $caption }}
+    <p style="font-style: italic; font-size: 11pt;">{{ $caption }}</p>
+  {{ end }}
+</figure>
