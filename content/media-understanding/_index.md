@@ -47,7 +47,7 @@ Herein, we provide documentation for
 3. Summarizing video content via the [CERTH Summarization API](/media-understanding/video_summarization/).
 4. Analysis and Summarization of volumtric video via [API](/media-understanding/volumetric_video_analysis/).
 
-![image](/img/media_selection/media-selection-overview.png)
+{{<figure "/img/media_selection/media-selection-overview.png" />}}
 
 ## Pages in this Section
 

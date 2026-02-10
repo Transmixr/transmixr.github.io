@@ -48,8 +48,9 @@ After selecting a workflow, users can specify the desired **summary duration** a
 * After submission, users can keep the browser tab open to monitor progress.  
 * Once analysis is complete, results are displayed automatically through the web interface.
 
-![](https://transmixr.github.io/assets/images/media_selection/video_summarization/initial_page.png)
-**Fig 1. The initial page of the tool.**
+{{<figure "/img/media_selection/video_summarization/initial_page.png">}}
+  Fig 1. The initial page of the tool.
+{{</figure>}}
 
 # Summarization Step
 
@@ -89,8 +90,9 @@ Based on the selected workflow at the initial step, users have access to differe
 
 * **Summarization** or **Aspect Ratio Transformation → Summarization.** Users can upload audio tracks (MP3 or WAV) for summary fragments where original audio has been removed. Also, users can upload subtitle files in .srt or .vtt format to generate a summarized version with captions.
 
-# ![](https://transmixr.github.io/assets/images/media_selection/video_summarization/step2_page.png)
-**Fig 2. The interface of the summarization step.**
+{{<figure "/img/media_selection/video_summarization/step2_page.png">}}
+  Fig 2. The interface of the summarization step.
+{{</figure>}}
 
 # Aspect Ratio transformation Step
 
@@ -124,9 +126,10 @@ Based on the selected workflow at the initial step, users have access to differe
 * **Aspect Ratio Transformation only.** Users skip the summarization step and apply cropping to the entire video. Users can retain original audio or upload a new audio track. Once cropping is complete, users proceed directly to the **final page**.  
 * **Aspect Ratio Transformation → Summarization.** Users begin by adjusting the cropped area, and then proceed to the summarization step. After applying the necessary adjustments, they continue to the summarization step.
 
-![](https://transmixr.github.io/assets/images/media_selection/video_summarization/step3_page.png) 
+{{<figure "/img/media_selection/video_summarization/step3_page.png">}}
+  Fig 3. The interface of the aspect ratio transformation step.
+{{</figure>}}
 
-**Fig 3. The interface of the aspect ratio transformation step.**
 
 # Final Page \- Results
 
@@ -136,5 +139,6 @@ Notification via Email (Optional). If an email address was provided during submi
 
 **Note:** The link remains active for **24 hours**. After this period, the video, the summarization results and the email address (if provided) are **automatically and permanently deleted** from our servers.
 
-![](https://transmixr.github.io/assets/images/media_selection/video_summarization/final_page.png) 
-**Fig 4. The interface of the results page.**
+{{<figure "/img/media_selection/video_summarization/final_page.png">}}
+  Fig 4. The interface of the results page.
+{{</figure>}}

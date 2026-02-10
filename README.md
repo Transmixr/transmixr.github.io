@@ -2,7 +2,7 @@
 
 This repository contains the source code for technical documentation and
 results of the [TRANSMIXR EU research project](https://transmixr.eu). The site
-can be compiled using the [Hugo](https://gohugo.io) static site generator and
+is be compiled using the [Hugo](https://gohugo.io) static site generator and
 is available to browse at https://transmixr.github.io
 
 ## Building
