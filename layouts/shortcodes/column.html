@@ -1,0 +1,5 @@
+{{ $size := .Params.width }}
+
+<div class="column is-{{ $size }}">
+  {{ .Inner | safeHTML }}
+</div>
